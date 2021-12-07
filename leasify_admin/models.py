@@ -115,7 +115,7 @@ class tiffin_owner(models.Model):
     class Meta:
         db_table="Tiffin_Owner"
 
-#This Is Tiffin Details Model.
+#This Is Tiffin Details Model...
 class tiffin_details(models.Model):
     to_id=models.ForeignKey(tiffin_owner,on_delete=models.CASCADE)
     tiff_id = models.AutoField(primary_key=True)
