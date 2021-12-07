@@ -1,0 +1,83 @@
+{% extends "admin_header.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0">Data Tables</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                                            <li class="breadcrumb-item active">Data Tables</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+
+                                        <p class="card-title-desc"><b>PG DETAILS TABLE</b>
+                                        </p>
+
+                                        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>PG Address</th>
+                                                <th>Image Path</th>
+                                                <th>PG Name</th>
+                                                <th>Rent Price</th>
+                                                <th>Description</th>
+                                                <th>No. Of Beds</th>
+                                                <th>For Whom?</th>
+                                                <th>Food Available</th>
+                                                <th>Wifi Available</th>
+                                                <th>Tv Available</th>
+                                            </tr>
+                                            </thead>
+
+
+                                            <tbody>
+                                            {% for data in pg_details_data %}
+                                <tr>
+                                    <td>{{data.pg_id}}</td>
+                                    <td>{{data.pg_add}}</td>
+                                    <td>{{data.pg_imgpath}}</td>
+                                    <td>{{data.pg_name}}</td>
+                                    <td>{{data.pg_rent}}</td>
+                                    <td>{{data.pg_beds}}</td>
+                                    <td>{{data.pg_for}}</td>
+                                    <td>{{data.pg_wifi}}</td>
+                                    <td>{{data.pg_tv}}</td>
+                                </tr>
+                                {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+                {% endblock %}

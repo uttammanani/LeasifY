@@ -1,0 +1,83 @@
+{% extends "admin_header.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0">Data Tables</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                                            <li class="breadcrumb-item active">Data Tables</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+
+                                        <p class="card-title-desc"><b>HOUSE DETAILS TABLE</b>
+                                        </p>
+
+                                         <center>  <u><a href="#" style="font-size:20px">ADD DETAILS</a></u></center> <br>
+                                        <center> <u><a href="#" style="font-size:20px">UPDATE DETAILS</a></u></center>
+<table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>House Address</th>
+                                                <th>Image Path</th>
+                                                <th>House Name</th>
+                                                <th>Rent Price</th>
+                                                <th>Description</th>
+                                                <th>Type</th>
+                                                <th>Parking</th>
+                                                <th>Lift</th>
+                                            </tr>
+                                            </thead>
+
+
+                                            <tbody>
+                                            {% for data in house_details_data %}
+                                <tr>
+                                    <td>{{data.h_id}}</td>
+                                    <td>{{data.h_add}}</td>
+                                    <td>{{data.h_imgpath}}</td>
+                                    <td>{{data.h_name}}</td>
+                                    <td>{{data.h_rent}}</td>
+                                    <td>{{data.h_desc}}</td>
+                                    <td>{{data.h_type}}</td>
+                                    <td>{{data.h_parking}}</td>
+                                    <td>{{data.h_lift}}</td>
+                                </tr>
+                                {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+                {% endblock %}

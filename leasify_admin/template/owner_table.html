@@ -1,0 +1,79 @@
+{% extends "admin_header.html" %}
+{% load static %}
+{% block content %}
+<!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0">Data Tables</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                                            <li class="breadcrumb-item active">Data Tables</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+
+                                        <p class="card-title-desc"><b>OWNER TABLE</b>
+                                        </p>
+
+                                        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Owner Type</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Contact Number</th>
+                                                <th>Address</th>
+                                                <th>Gender</th>
+                                                <th>Password</th>
+                                            </tr>
+                                            </thead>
+
+
+                                            <tbody>
+                                            {% for data in owner_data %}
+                                <tr>
+                                    <td>{{data.o_id}}</td>
+                                    <td>{{data.o_type}}</td>
+                                    <td>{{data.o_name}}</td>
+                                    <td>{{data.o_email}}</td>
+                                    <td>{{data.o_phno}}</td>
+                                    <td>{{data.o_add}}</td>
+                                    <td>{{data.o_gender}}</td>
+                                    <td>{{data.o_pass}}</td>
+                                </tr>
+                                {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+                {% endblock %}
