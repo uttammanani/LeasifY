@@ -141,6 +141,7 @@ class status(models.Model):
     class Meta:
         db_table="Status"
 
+#This Is Notification Model.
 class notification(models.Model):
     st_id=models.ForeignKey(status,on_delete=models.CASCADE)
     noti_id=models.AutoField(primary_key=True)
@@ -150,6 +151,7 @@ class notification(models.Model):
     class Meta:
         db_table="Notification"
 
+#This Is Feedback Model.
 class feedback(models.Model):
     h_id = models.ForeignKey(house_details, on_delete=models.CASCADE)
     pg_id = models.ForeignKey(pg_details, on_delete=models.CASCADE)
