@@ -20,7 +20,6 @@ from leasify_admin import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('insert/',views.insert),
     path('show/',views.show),
     path('load/',views.loadadmin),
     path('cust_table/',views.cust_table),
@@ -35,6 +34,7 @@ urlpatterns = [
     path('status_table/',views.status_table),
     path('notification_table/',views.notification_table),
     path('feedback_table/',views.feedback_table),
-    path('form/',views.formm)
+    path('form/',views.formm),
+    path('insert_house_details/',views.insert_house_details)
 
 ]

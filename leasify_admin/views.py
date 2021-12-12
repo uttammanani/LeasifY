@@ -4,23 +4,11 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from leasify_admin.forms import custform
 from leasify_admin.models import customer, owner, house_details, area, house_gallery, pg_details, pg_gallery, \
     tiffin_owner, tiffin_details, status, notification, feedback
 
+from leasify_admin.forms import house_details_form
 
-def insert(request):
-    if request.method=="POST":
-        form1=custform(request.POST)
-        if form1.is_valid():
-            try:
-                form1.save()
-                return redirect('/show')
-            except:
-                print("________________", sys.exc_info())
-    else:
-        form1=custform
-        return render(request,"insert.html",{'form1':form1})
 
 def show(request):
     show1=customer.objects.all()
@@ -79,6 +67,20 @@ def feedback_table(request):
 
 def formm(request):
     return render(request,"form-elements.html")
+
+def insert_house_details(request):
+    if request.method=="POST":
+        form=house_details_form(request.POST)
+        print("__________________",form.errors)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/house_details_table/')
+            except:
+                print("________________",sys.exc_info())
+    else:
+        form = house_details_form()
+    return render(request,"form-elements.html",{'form':form})
 
 
 
