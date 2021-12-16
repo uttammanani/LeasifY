@@ -34,7 +34,8 @@ urlpatterns = [
     path('status_table/',views.status_table),
     path('notification_table/',views.notification_table),
     path('feedback_table/',views.feedback_table),
-    path('form/',views.formm),
-    path('insert_house_details/',views.insert_house_details)
+    path('insert_house_details/',views.insert_house_details),
+    path('insert_owner/',views.insert_owner_details)
+
 
 ]
