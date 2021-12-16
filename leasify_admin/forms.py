@@ -1,4 +1,4 @@
-from leasify_admin.models import house_details, owner
+from leasify_admin.models import house_details, owner, area
 from django import forms
 
 class house_details_form(forms.ModelForm):
@@ -11,5 +11,10 @@ class owner_form(forms.ModelForm):
     class Meta:
         model=owner
         fields=["o_type","o_name","o_email","o_phno","o_add","o_gender","o_pass"]
+
+class area_form(forms.ModelForm):
+    class Meta:
+        model=area
+        fields=["a_name"]
 
 

@@ -8,7 +8,7 @@ from leasify_admin.function import handle_uploaded_file
 from leasify_admin.models import customer, owner, house_details, area, house_gallery, pg_details, pg_gallery, \
     tiffin_owner, tiffin_details, status, notification, feedback
 
-from leasify_admin.forms import house_details_form, owner_form
+from leasify_admin.forms import house_details_form, owner_form, area_form
 
 
 def show(request):
@@ -111,4 +111,20 @@ def insert_owner_details(request):
         else:
             form = owner_form()
         return render(request, "owner_insertform.html",{'form':form})
+
+
+def insert_area(request):
+    if request.method == "POST":
+        form = area_form(request.POST)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/area_table')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = area_form()
+    return render(request, "area_insertform.html", {'form': form})
+
 
