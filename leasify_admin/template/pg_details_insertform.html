@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">INSERT HOUSE DETAILS</h4>
+                                    <h4 class="mb-sm-0">INSERT PG DETAILS</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
@@ -30,24 +30,24 @@
 
 
                         <!-- end page title -->
-<form method="post" action="/insert_house_details/" enctype="multipart/form-data">
+<form method="post" action="/insert_pg_details/" enctype="multipart/form-data">
     {% csrf_token %}
 
-     <label>House Address</label>
-    <input type="text" name="h_add"/>
+     <label>PG Address</label>
+    <input type="text" name="pg_add"/>
     <br>
     <br>
-    <label>House Name</label>
-    <input type="text"  name="h_name"/>
+    <label>PG Name</label>
+    <input type="text"  name="pg_name"/>
     <br>
     <br>
-    <label>House Owner Name</label>
+     <label>PG Owner Name</label>
     <select name="o_id">
         {% for data in own %}
         <option value="{{data.o_id}}">{{data.o_name}}</option>
         {% endfor %}
     </select>
-     <br>
+    <br>
     <br>
     <label>Area</label>
     <select name="a_id">
@@ -59,40 +59,52 @@
     <br>
 
 
-    <label>House Type:</label>
+    <label>Number Of Beds</label>
 
-<select name="h_type">
-  <option value="1bhk">1 BHK</option>
-  <option value="2bhk">2 BHK</option>
-  <option value="3bhk">3 BHK</option>
+<select name="pg_beds">
+  <option value="1">1 </option>
+  <option value="2">2 </option>
+  <option value="3">3 </option>
+    <option value="4">4 </option>
+    <option value="5">5 </option>
 </select>
     <br>
     <br>
     <br>
-    <label>House Description</label>
-    <textarea name="h_desc"rows="2" cols="50"></textarea>
+    <label>PG Description</label>
+    <textarea name="pg_desc" rows="2" cols="50"></textarea>
+    <br>
+    <br>
+    <label>PF For</label><br>
+     <input type="radio"  name="pg_for" value="Boys">Boys
+    <input type="radio"  name="pg_for" value="Girls">Girls
     <br>
     <br>
 
-    <label>Parking Available</label><br>
-     <input type="radio"  name="h_parking" value="Yes">Yes
-    <input type="radio"  name="h_parking" value="No">No
+    <label>Food Available</label><br>
+     <input type="radio"  name="pg_food" value="Yes">Yes
+    <input type="radio"  name="pg_food" value="No">No
     <br>
     <br>
-    <label>Lift Available</label><br>
-     <input type="radio"  name="h_lift" value="Yes">Yes
-    <input type="radio"  name="h_lift" value="No">No
+    <label>Wifi Available</label><br>
+     <input type="radio"  name="pg_wifi" value="Yes">Yes
+    <input type="radio"  name="pg_wifi" value="No">No
+    <br>
+    <br>
+      <label>TV Available</label><br>
+     <input type="radio"  name="pg_tv" value="Yes">Yes
+    <input type="radio"  name="pg_tv" value="No">No
     <br>
     <br>
 
 
 
-    <label>House rent</label>
-    <input type="text" name="h_rent"/>
+    <label>PG rent</label>
+    <input type="text" name="pg_rent"/>
     <br>
     <br>
-     <label>House Image</label>
-    <input type="file" name="h_imgpath"/>
+     <label>PG Image</label>
+    <input type="file" name="pg_imgpath"/>
     <br>
     <br>
 

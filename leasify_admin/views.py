@@ -1,6 +1,6 @@
 import sys
 
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -8,7 +8,8 @@ from leasify_admin.function import handle_uploaded_file
 from leasify_admin.models import customer, owner, house_details, area, house_gallery, pg_details, pg_gallery, \
     tiffin_owner, tiffin_details, status, notification, feedback
 
-from leasify_admin.forms import house_details_form, owner_form, area_form
+from leasify_admin.forms import house_details_form, owner_form, area_form, pg_details_form, tiffin_owner_form, \
+    tiffin_details_form
 
 
 def show(request):
@@ -126,5 +127,61 @@ def insert_area(request):
     else:
         form = area_form()
     return render(request, "area_insertform.html", {'form': form})
+
+
+def insert_pg_details(request):
+    own = owner.objects.all()
+    are = area.objects.all()
+    if request.method == "POST":
+        form = pg_details_form(request.POST,request.FILES)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                handle_uploaded_file(request.FILES['pg_imgpath'])
+                form.save()
+                return redirect('/pg_details_table')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = house_details_form()
+    return render(request, "pg_details_insertform.html", {'form': form, 'own': own, 'are': are})
+
+
+def insert_tiffin_owner_details(request):
+    if request.method == "POST":
+        form = tiffin_owner_form(request.POST)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/tiffin_owner_table')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = tiffin_owner_form()
+    return render(request, "tiffin_owner_insertform.html", {'form': form})
+
+def insert_tiffin_details(request):
+    own = tiffin_owner.objects.all()
+
+    if request.method == "POST":
+        form = tiffin_details_form(request.POST,request.FILES)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                handle_uploaded_file(request.FILES['tiff_imgpath'])
+                form.save()
+                return redirect('/tiffin_details_table')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = tiffin_details_form()
+    return render(request, "tiffin_details_insertform.html", {'form': form, 'own': own})
+
+
+
+
+
+
 
 

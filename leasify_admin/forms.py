@@ -1,4 +1,4 @@
-from leasify_admin.models import house_details, owner, area
+from leasify_admin.models import house_details, owner, area, pg_details, tiffin_owner, tiffin_details
 from django import forms
 
 class house_details_form(forms.ModelForm):
@@ -18,3 +18,19 @@ class area_form(forms.ModelForm):
         fields=["a_name"]
 
 
+class pg_details_form(forms.ModelForm):
+    pg_imgpath = forms.FileField()
+    class Meta:
+        model=pg_details
+        fields=["a_id","pg_add","pg_name","pg_desc","pg_rent","pg_beds","pg_for","pg_food","pg_wifi","pg_tv","pg_imgpath","o_id"]
+
+class tiffin_owner_form(forms.ModelForm):
+    class Meta:
+        model=tiffin_owner
+        fields=["to_name","to_email","to_phno","to_add","to_gender","to_pass"]
+
+class tiffin_details_form(forms.ModelForm):
+    tiff_imgpath = forms.FileField()
+    class Meta:
+        model=tiffin_details
+        fields=["to_id","tiff_title","tiff_type","tiff_desc","tiff_imgpath","tiff_price"]

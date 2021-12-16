@@ -36,7 +36,10 @@ urlpatterns = [
     path('feedback_table/',views.feedback_table),
     path('insert_house_details/',views.insert_house_details),
     path('insert_owner/',views.insert_owner_details),
-    path('insert_area/',views.insert_area)
+    path('insert_area/',views.insert_area),
+    path('insert_pg_details/',views.insert_pg_details),
+    path('insert_tiffin_owner/',views.insert_tiffin_owner_details),
+    path('insert_tiffin_details/',views.insert_tiffin_details)
 
 
 ]
