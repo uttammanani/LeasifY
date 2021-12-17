@@ -9,7 +9,7 @@ from leasify_admin.models import customer, owner, house_details, area, house_gal
     tiffin_owner, tiffin_details, status, notification, feedback
 
 from leasify_admin.forms import house_details_form, owner_form, area_form, pg_details_form, tiffin_owner_form, \
-    tiffin_details_form
+    tiffin_details_form, house_gallery_form, pg_gallery_form
 
 
 def show(request):
@@ -177,6 +177,61 @@ def insert_tiffin_details(request):
     else:
         form = tiffin_details_form()
     return render(request, "tiffin_details_insertform.html", {'form': form, 'own': own})
+
+
+def insert_house_gallery(request):
+    own = house_details.objects.all()
+
+    if request.method == "POST":
+        form = house_gallery_form(request.POST,request.FILES)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                handle_uploaded_file(request.FILES['hg_imgpath'])
+                form.save()
+                return redirect('/house_gallery_table')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = tiffin_details_form()
+    return render(request, "house_gallery_insertform.html", {'form': form, 'own': own})
+
+
+def insert_pg_gallery(request):
+    own = pg_details.objects.all()
+
+    if request.method == "POST":
+        form = pg_gallery_form(request.POST,request.FILES)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                handle_uploaded_file(request.FILES['pgg_imgpath'])
+                form.save()
+                return redirect('/pg_gallery_table')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = tiffin_details_form()
+    return render(request, "pg_gallery_insertform.html", {'form': form, 'own': own})
+
+def update_area(request,id):
+    are= area.objects.get(a_id=id)
+    form=area_form(request.POST,instance=are)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/area_table")
+    return render(request,'area_update.html',{'are':are})
+
+
+def update_house_details(request,id):
+    temp= house_details.objects.get(h_id=id)
+    form=house_details_form(request.POST,instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/house_details_table")
+    return render(request,'house_details_update.html',{'temp':temp})
 
 
 

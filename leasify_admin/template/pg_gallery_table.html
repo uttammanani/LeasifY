@@ -36,12 +36,13 @@
 
                                         <p class="card-title-desc"><b>PG GALLERY TABLE</b>
                                         </p>
-<center>  <u><a href="#" style="font-size:20px">ADD DETAILS</a></u></center> <br>
+<center>  <u><a href="/insert_pg_gallery/" style="font-size:20px">ADD DETAILS</a></u></center> <br>
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Image Path</th>
+                                                <th>Action</th>
 
                                             </tr>
                                             </thead>
@@ -52,6 +53,7 @@
                                 <tr>
                                     <td>{{data.pg_gallery_id}}</td>
                                      <td>{{data.pgg_imgpath}}</td>
+                                     <td> <a href="#"><i class="dripicons-pencil"></i></a> <a href="#"><i class="dripicons-trash"></i></a></td>
 
                                 </tr>
                                 {% endfor %}

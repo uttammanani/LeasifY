@@ -39,7 +39,10 @@ urlpatterns = [
     path('insert_area/',views.insert_area),
     path('insert_pg_details/',views.insert_pg_details),
     path('insert_tiffin_owner/',views.insert_tiffin_owner_details),
-    path('insert_tiffin_details/',views.insert_tiffin_details)
+    path('insert_tiffin_details/',views.insert_tiffin_details),
+    path('insert_house_gallery/',views.insert_house_gallery),
+    path('insert_pg_gallery/',views.insert_pg_gallery),
+    path('update_area/<int:id>',views.update_area)
 
 
 ]

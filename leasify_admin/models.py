@@ -2,6 +2,19 @@ from django.db import models
 
 # Create your models here.
 
+
+#This The Admin Model
+class admin(models.Model):
+    admin_id = models.AutoField(primary_key=True)
+    admin_name= models.CharField(max_length=30)
+    admin_email= models.EmailField(unique=True)
+    admin_pass=models.CharField(max_length=20)
+    otp=models.CharField(max_length=10,null=True)
+    otp_used=models.IntegerField(default=0)
+
+    class Meta:
+        db_table="admin"
+
 #This The Customer Model
 class customer(models.Model):
     c_id = models.AutoField(primary_key=True)
@@ -12,7 +25,6 @@ class customer(models.Model):
     c_pass=models.CharField(max_length=20)
     otp=models.CharField(max_length=10,null=True)
     otp_used=models.IntegerField(default=0)
-    is_admin=models.IntegerField(null=True)
     c_gender=models.CharField(max_length=10)
 
     class Meta:
@@ -30,7 +42,6 @@ class owner(models.Model):
     o_pass = models.CharField(max_length=20)
     otp = models.CharField(max_length=10, null=True)
     otp_used = models.IntegerField(default=0)
-    is_admin = models.IntegerField(null=True)
     o_gender = models.CharField(max_length=10)
 
     class Meta:

@@ -43,6 +43,7 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Area Name</th>
+                                                <th>Action</th>
 
                                             </tr>
                                             </thead>
@@ -53,6 +54,7 @@
                                 <tr>
                                     <td>{{data.a_id}}</td>
                                     <td>{{data.a_name}}</td>
+                                     <td> <a href="/update_area/{{data.a_id}}"><i class="dripicons-pencil"></i></a> <a href="#"><i class="dripicons-trash"></i></a></td>
 
                                 </tr>
                                 {% endfor %}
