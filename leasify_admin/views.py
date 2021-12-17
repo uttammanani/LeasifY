@@ -233,6 +233,30 @@ def update_house_details(request,id):
         return redirect("/house_details_table")
     return render(request,'house_details_update.html',{'temp':temp})
 
+def del_area(request,id):
+    temp=area.objects.get(a_id=id)
+    temp.delete()
+    return redirect("/area_table")
+
+def del_house_details(request,id):
+    temp=house_details.objects.get(h_id=id)
+    temp.delete()
+    return redirect("/house_details_table")
+
+def del_house_gallery(request,id):
+    temp=house_gallery.objects.get(gallery_id=id)
+    temp.delete()
+    return redirect("/house_gallery_table")
+
+def del_owner(request,id):
+    temp=owner.objects.get(o_id=id)
+    temp.delete()
+    return redirect("/owner_table")
+
+def del_pg_details(request,id):
+    temp=pg_details.objects.get(pg_id=id)
+    temp.delete()
+    return redirect("/pg_details_table")
 
 
 

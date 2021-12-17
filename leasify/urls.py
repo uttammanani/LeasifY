@@ -42,7 +42,13 @@ urlpatterns = [
     path('insert_tiffin_details/',views.insert_tiffin_details),
     path('insert_house_gallery/',views.insert_house_gallery),
     path('insert_pg_gallery/',views.insert_pg_gallery),
-    path('update_area/<int:id>',views.update_area)
+    path('update_area/<int:id>',views.update_area),
+    path('del_area/<int:id>',views.del_area),
+    path('del_house_details/<int:id>',views.del_house_details),
+    path('del_house_gallery/<int:id>',views.del_house_gallery),
+    path('del_owner/<int:id>',views.del_owner),
+    path('del_pg_details/<int:id>',views.del_pg_details),
+
 
 
 ]
