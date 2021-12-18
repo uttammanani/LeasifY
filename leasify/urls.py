@@ -42,12 +42,26 @@ urlpatterns = [
     path('insert_tiffin_details/',views.insert_tiffin_details),
     path('insert_house_gallery/',views.insert_house_gallery),
     path('insert_pg_gallery/',views.insert_pg_gallery),
-    path('update_area/<int:id>',views.update_area),
     path('del_area/<int:id>',views.del_area),
     path('del_house_details/<int:id>',views.del_house_details),
     path('del_house_gallery/<int:id>',views.del_house_gallery),
     path('del_owner/<int:id>',views.del_owner),
     path('del_pg_details/<int:id>',views.del_pg_details),
+    path('del_pg_gallery/<int:id>',views.del_pg_gallery),
+    path('del_tiffin_owner/<int:id>', views.del_tiffin_owner),
+    path('update_area/<int:id>',views.update_area),
+    path('update_house_details/<int:id>',views.update_house_details),
+    path('update_house_gallery/<int:id>',views.update_house_gallery),
+    path('update_owner/<int:id>', views.update_owner),
+    path('update_pg_details/<int:id>',views.update_pg_details),
+    path('update_pg_gallery/<int:id>',views.update_pg_gallery),
+    path('update_tiffin_details/<int:id>',views.update_tiffin_details),
+    path('update_tiffin_owner/<int:id>', views.update_tiffin_owner),
+    path('admin_login/',views.admin_login),
+    path('forgot_password/',views.forgot_pass),
+    path('send_otp/',views.send_otp),
+    path('reset/',views.set_password),
+    path('index/',views.index)
 
 
 

@@ -1,0 +1,77 @@
+{% extends "admin_header.html" %}
+{% load static %}
+{% block content %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+<div class="main-content" xmlns="http://www.w3.org/1999/html">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0">INSERT OWNER DETAILS</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                            <li class="breadcrumb-item active">Form Elements</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- end page title -->
+<form method="post" action="/update_owner/{{temp.o_id}}">
+    {% csrf_token %}
+
+     <label>Owner Name</label>
+    <input type="text" name="o_name" value="{{temp.o_name}}"/>
+    <br>
+    <br>
+    <label>Owner Type</label>
+    <select name="o_type">
+    <option value="{{temp.o_type}}">{{temp.o_type}}</option>
+  <option value="PG Owner">PG Owner</option>
+  <option value="House Owner">House Owner</option>
+</select>
+    <br>
+    <br>
+
+    <label>Owner Email</label>
+    <input type="text"  name="o_email" value="{{temp.o_email}}"/>
+    <br>
+    <br>
+    <label>Owner Phone Number</label>
+    <input type="text"  name="o_phno" value="{{temp.o_phno}}"/>
+    <br>
+    <br>
+    <label>Owner Address</label>
+    <input type="text"  name="o_add" value="{{temp.o_add}}"/>
+    <br>
+    <br>
+    <label>Gender</label><br>
+     <input type="radio"  name="o_gender" value="Male">Male
+    <input type="radio"  name="o_gender" value="Female">Female
+    <br>
+    <br>
+     <label>Owner Password</label>
+    <input type="text"  name="o_pass" value="{{temp.o_pass}}"/>
+    <br>
+    <br>
+    <input type="submit" value="Submit"/>
+
+
+</form>
+
+
+
+                    {% endblock %}

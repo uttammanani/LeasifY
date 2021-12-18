@@ -1,12 +1,15 @@
 import sys
+import random
 
-from django.http import HttpResponse, request
+from django.conf import settings
+from django.contrib import messages
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from leasify_admin.function import handle_uploaded_file
 from leasify_admin.models import customer, owner, house_details, area, house_gallery, pg_details, pg_gallery, \
-    tiffin_owner, tiffin_details, status, notification, feedback
+    tiffin_owner, tiffin_details, status, notification, feedback, admin
 
 from leasify_admin.forms import house_details_form, owner_form, area_form, pg_details_form, tiffin_owner_form, \
     tiffin_details_form, house_gallery_form, pg_gallery_form
@@ -19,6 +22,83 @@ def show(request):
 
 def loadadmin(request):
     return render(request, "admin_header.html")
+
+def admin_login(request):
+    if request.method=='POST':
+        uname=request.POST['admin_name']
+        passsword=request.POST['admin_pass']
+        val=admin.objects.filter(admin_name=uname,admin_pass=passsword).count()
+        print("__________"+uname+"_______________"+passsword)
+        if val==1:
+            return redirect('/index/')
+        else:
+            messages.error(request,"Invalid Username and password")
+            return redirect('/admin_login/')
+    else:
+        return render(request,"admin_login.html")
+
+def forgot_pass(request):
+    return render(request, "forgot_pass.html")
+
+def index(request):
+    tiff = tiffin_owner.objects.filter().count()
+    house= owner.objects.filter(o_type='House Owner').count()
+    pg = owner.objects.filter(o_type='PG Owner').count()
+    cust= customer.objects.filter().count()
+    return render(request, "index.html",{'tiff':tiff,'house':house,'pg':pg,'cust':cust})
+
+def send_otp(request):
+
+    otp1 = random.randint(10000, 99999)
+    e = request.POST['admin_email']
+
+    request.session['temail']=e
+
+    obj = admin.objects.filter(admin_email=e).count()
+
+    if obj == 1:
+
+        val = admin.objects.filter(admin_email=e).update(otp=otp1 , otp_used=0)
+
+        subject = 'OTP FOR RESETING YOUR PASSWORD'
+        message = "Your OTP for Reseting Your Password is "+str(otp1)+".Please Dont Send of Forward To Anyone in order to Protect Your Account."
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [e, ]
+
+        send_mail(subject, message, email_from, recipient_list)
+        return render(request, 'set_password.html')
+    else:
+        messages.error(request, "Invalid Email.Please Try Again")
+        return redirect('/forgot_password/')
+
+
+
+def set_password(request):
+
+    if request.method == "POST":
+
+        T_otp = request.POST['otp']
+        T_pass = request.POST['admin_pass']
+        T_cpass = request.POST['cpass']
+
+        if T_pass == T_cpass:
+
+            e = request.session['temail']
+            val = admin.objects.filter(admin_email=e,otp = T_otp,otp_used = 0).count()
+
+            if val == 1:
+                admin.objects.filter(admin_email = e).update(otp_used = 1,admin_pass = T_pass)
+                return redirect("/admin_login")
+            else:
+                messages.error(request,"Invalid OTP")
+                return render(request,"forgot_password.html")
+
+        else:
+            messages.error(request,"New password and Confirm password does not match ")
+            return render(request,"set_password.html")
+
+    else:
+        return redirect("/forgot_password")
 
 
 def cust_table(request):
@@ -233,6 +313,63 @@ def update_house_details(request,id):
         return redirect("/house_details_table")
     return render(request,'house_details_update.html',{'temp':temp})
 
+
+def update_owner(request,id):
+    temp= owner.objects.get(o_id=id)
+    form=owner_form(request.POST,instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/owner_table")
+    return render(request,'owner_update.html',{'temp':temp})
+
+def update_tiffin_owner(request,id):
+    temp= tiffin_owner.objects.get(to_id=id)
+    form=tiffin_owner_form(request.POST,instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/tiffin_owner_table")
+    return render(request,'tiffin_owner_update.html',{'temp':temp})
+
+
+def update_house_gallery(request,id):
+    temp= house_gallery.objects.get(gallery_id=id)
+    form=house_gallery_form(request.POST,instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/house_gallery_table")
+    return render(request,'house_gallery_update.html',{'temp':temp})
+
+def update_pg_gallery(request,id):
+    temp= pg_gallery.objects.get(pg_gallery_id=id)
+    form=pg_gallery_form(request.POST,instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/pg_gallery_table")
+    return render(request,'pg_gallery_update.html',{'temp':temp})
+
+
+def update_pg_details(request,id):
+    temp= pg_details.objects.get(pg_id=id)
+    form=pg_details_form(request.POST,instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/pg_details_table")
+    return render(request,'pg_details_update.html',{'temp':temp})
+
+def update_tiffin_details(request,id):
+    temp= tiffin_details.objects.get(tiff_id=id)
+    form=tiffin_details_form(request.POST,instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/tiffin_details_table")
+    return render(request,'tiffin_details_update.html',{'temp':temp})
+
 def del_area(request,id):
     temp=area.objects.get(a_id=id)
     temp.delete()
@@ -257,6 +394,21 @@ def del_pg_details(request,id):
     temp=pg_details.objects.get(pg_id=id)
     temp.delete()
     return redirect("/pg_details_table")
+
+def del_pg_gallery(request,id):
+    temp=pg_gallery.objects.get(pg_gallery_id=id)
+    temp.delete()
+    return redirect("/pg_gallery_table")
+
+def del_tiffin_details(request,id):
+    temp=tiffin_details.objects.get(tiff_id=id)
+    temp.delete()
+    return redirect("/tiffin_details_table")
+
+def del_tiffin_owner(request,id):
+    temp=tiffin_owner.objects.get(to_id=id)
+    temp.delete()
+    return redirect("/tiffin_owner_table")
 
 
 

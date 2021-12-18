@@ -1,0 +1,62 @@
+
+
+
+{% extends "admin_header.html" %}
+{% load static %}
+{% block content %}
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+<div class="main-content" xmlns="http://www.w3.org/1999/html">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0">INSERT HOUSE Images</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                            <li class="breadcrumb-item active">Form Elements</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- end page title -->
+<form method="post" action="/update_house_gallery/{{temp.gallery_id}}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+    <label>House Name</label>
+    <select name="h_id">
+        {% for data in own %}
+        <option value="{{data.h_id}}">{{data.h_name}}</option>
+        {% endfor %}
+    </select>
+     <br>
+    <br>
+
+     <label>House Image</label>
+    <input type="file" name="hg_imgpath" value="{{temp.hg_impgpath}}"/>
+    <br>
+    <br>
+
+
+    <input type="submit" value="Submit"/>
+
+
+</form>
+
+
+
+                    {% endblock %}
