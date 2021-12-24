@@ -2,58 +2,60 @@
 {% load static %}
 {% block content %}
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-<div class="main-content" xmlns="http://www.w3.org/1999/html">
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
 
-                <div class="page-content">
-                    <div class="container-fluid">
 
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">INSERT HOUSE Images</h4>
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                            <li class="breadcrumb-item active">Form Elements</li>
-                                        </ol>
+    <div class="page-content">
+        <div class="container-fluid">
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">INSERT PG GALLERY</h4>
+                            <br>
+                            <form method="post" action="/update_pg_gallery/{{temp.pg_gallery_id}}" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">PG Name</label>
+                                    <div class="col-md-10">
+                                        <select name="pg_id" class="form-select">
+                                            {% for data in own %}
+                                            <option value="{{data.pg_id}}">{{data.pg_name}}</option>
+                                            {% endfor %}
+                                        </select>
                                     </div>
-
                                 </div>
-                            </div>
+                                <div class="mb-3 row">
+                                    <label for="example-number-input" class="col-md-2 col-form-label">PG Image</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="file" name="pgg_imgpath" id="example-number-input" value="{{temp.pgg_imgpath}}">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="submit" value="Submit" style="color:red">
+                                    </div>
+                                </div>
+
+                            </form>
                         </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
+
+            <!-- end row -->
 
 
-
-                        <!-- end page title -->
-<form method="post" action="/update_pg_gallery/{{temp.pg_gallery_id}}" enctype="multipart/form-data">
-    {% csrf_token %}
-
-
-    <label>PG Name</label>
-    <select name="pg_id">
-        {% for data in own %}
-        <option value="{{data.pg_id}}">{{data.pg_name}}</option>
-        {% endfor %}
-    </select>
-     <br>
-    <br>
-
-     <label>PG Image</label>
-    <input type="file" name="pgg_imgpath" value="{{temp.pgg_imgpath}}"/>
-    <br>
-    <br>
-
-
-    <input type="submit" value="Submit"/>
-
-
-</form>
-
-
-
-                    {% endblock %}
+            {% endblock %}

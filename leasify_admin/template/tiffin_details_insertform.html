@@ -2,87 +2,93 @@
 {% load static %}
 {% block content %}
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-<div class="main-content" xmlns="http://www.w3.org/1999/html">
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
 
-                <div class="page-content">
-                    <div class="container-fluid">
 
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">INSERT TIFFIN DETAILS</h4>
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                            <li class="breadcrumb-item active">Form Elements</li>
-                                        </ol>
+    <div class="page-content">
+        <div class="container-fluid">
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">INSERT TIFFIN DETAILS</h4>
+                            <br>
+                            <form method="post" action="/insert_tiffin_details/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="mb-3 row">
+                                    <label for="example-text-input" class="col-md-2 col-form-label">Tiffin Title                                Address</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="tiff_title" id="example-text-input">
                                     </div>
-
                                 </div>
-                            </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">Tiffin Owner Name</label>
+                                    <div class="col-md-10">
+                                        <select name="to_id" class="form-select">
+                                            {% for data in own %}
+                                            <option value="{{data.to_id}}">{{data.to_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">Tiffin Type</label>
+                                    <div class="col-md-10">
+                                        <select name="tiff_type" class="form-select">
+                                            <option value="Lunch">Lunch</option>
+                                            <option value="Dinner">Dinner</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                 <div class="mb-3 row">
+                                    <label for="example-time-input" class="col-md-2 col-form-label">Tiffin Description</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="tiff_desc"
+                                               id="example-time-input">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="example-datetime-local-input" class="col-md-2 col-form-label">Tiffin Price
+                                        </label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="tiff_price"
+                                               id="example-datetime-local-input">
+                                    </div>
+                                </div>
+
+
+                                <div class="mb-3 row">
+                                    <label for="example-number-input" class="col-md-2 col-form-label">Tiffin Image</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="file" name="tiff_imgpath" id="example-number-input">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="submit" value="Submit" style="color:red">
+                                    </div>
+                                </div>
+
+                            </form>
                         </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
+
+            <!-- end row -->
 
 
-
-                        <!-- end page title -->
-<form method="post" action="/insert_tiffin_details/" enctype="multipart/form-data">
-    {% csrf_token %}
-
-     <label>Tiffin Title</label>
-    <input type="text" name="tiff_title"/>
-    <br>
-    <br>
-
-    <label>Tiffin Owner Name</label>
-    <select name="to_id">
-        {% for data in own %}
-        <option value="{{data.to_id}}">{{data.to_name}}</option>
-        {% endfor %}
-    </select>
-     <br>
-    <br>
-
-
-    <label>Tiffin Type:</label>
-
-<select name="tiff_type">
-  <option value="Lunch">Lunch</option>
-  <option value="Dinner">Dinner</option>
-</select>
-    <br>
-    <br>
-    <br>
-    <label>Tiffin Description</label>
-    <textarea name="tiff_desc"rows="2" cols="50"></textarea>
-    <br>
-    <br>
-
-
-
-
-
-
-
-    <label>Tiffin Price</label>
-    <input type="text" name="tiff_price"/>
-    <br>
-    <br>
-     <label>Tiffin Image</label>
-    <input type="file" name="tiff_imgpath"/>
-    <br>
-    <br>
-
-
-    <input type="submit" value="Submit"/>
-
-
-</form>
-
-
-
-                    {% endblock %}
+            {% endblock %}

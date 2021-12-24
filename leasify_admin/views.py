@@ -23,45 +23,49 @@ def show(request):
 def loadadmin(request):
     return render(request, "admin_header.html")
 
+
 def admin_login(request):
-    if request.method=='POST':
-        uname=request.POST['admin_name']
-        passsword=request.POST['admin_pass']
-        val=admin.objects.filter(admin_name=uname,admin_pass=passsword).count()
-        print("__________"+uname+"_______________"+passsword)
-        if val==1:
+    if request.method == 'POST':
+        uname = request.POST['admin_name']
+        passsword = request.POST['admin_pass']
+        val = admin.objects.filter(admin_name=uname, admin_pass=passsword).count()
+        print("__________" + uname + "_______________" + passsword)
+        if val == 1:
             return redirect('/index/')
         else:
-            messages.error(request,"Invalid Username and password")
+            messages.error(request, "Invalid Username and password")
             return redirect('/admin_login/')
     else:
-        return render(request,"admin_login.html")
+        return render(request, "admin_login.html")
+
 
 def forgot_pass(request):
     return render(request, "forgot_pass.html")
 
+
 def index(request):
     tiff = tiffin_owner.objects.filter().count()
-    house= owner.objects.filter(o_type='House Owner').count()
+    house = owner.objects.filter(o_type='House Owner').count()
     pg = owner.objects.filter(o_type='PG Owner').count()
-    cust= customer.objects.filter().count()
-    return render(request, "index.html",{'tiff':tiff,'house':house,'pg':pg,'cust':cust})
+    cust = customer.objects.filter().count()
+    return render(request, "index.html", {'tiff': tiff, 'house': house, 'pg': pg, 'cust': cust})
+
 
 def send_otp(request):
-
     otp1 = random.randint(10000, 99999)
     e = request.POST['admin_email']
 
-    request.session['temail']=e
+    request.session['temail'] = e
 
     obj = admin.objects.filter(admin_email=e).count()
 
     if obj == 1:
 
-        val = admin.objects.filter(admin_email=e).update(otp=otp1 , otp_used=0)
+        val = admin.objects.filter(admin_email=e).update(otp=otp1, otp_used=0)
 
         subject = 'OTP FOR RESETING YOUR PASSWORD'
-        message = "Your OTP for Reseting Your Password is "+str(otp1)+".Please Dont Send of Forward To Anyone in order to Protect Your Account."
+        message = "Your OTP for Reseting Your Password is " + str(
+            otp1) + ".Please Dont Send of Forward To Anyone in order to Protect Your Account."
         email_from = settings.EMAIL_HOST_USER
         recipient_list = [e, ]
 
@@ -72,9 +76,7 @@ def send_otp(request):
         return redirect('/forgot_password/')
 
 
-
 def set_password(request):
-
     if request.method == "POST":
 
         T_otp = request.POST['otp']
@@ -84,18 +86,18 @@ def set_password(request):
         if T_pass == T_cpass:
 
             e = request.session['temail']
-            val = admin.objects.filter(admin_email=e,otp = T_otp,otp_used = 0).count()
+            val = admin.objects.filter(admin_email=e, otp=T_otp, otp_used=0).count()
 
             if val == 1:
-                admin.objects.filter(admin_email = e).update(otp_used = 1,admin_pass = T_pass)
+                admin.objects.filter(admin_email=e).update(otp_used=1, admin_pass=T_pass)
                 return redirect("/admin_login")
             else:
-                messages.error(request,"Invalid OTP")
-                return render(request,"forgot_password.html")
+                messages.error(request, "Invalid OTP")
+                return render(request, "forgot_password.html")
 
         else:
-            messages.error(request,"New password and Confirm password does not match ")
-            return render(request,"set_password.html")
+            messages.error(request, "New password and Confirm password does not match ")
+            return render(request, "set_password.html")
 
     else:
         return redirect("/forgot_password")
@@ -165,7 +167,7 @@ def insert_house_details(request):
     own = owner.objects.all()
     are = area.objects.all()
     if request.method == "POST":
-        form = house_details_form(request.POST,request.FILES)
+        form = house_details_form(request.POST, request.FILES)
         print("__________________", form.errors)
         if form.is_valid():
             try:
@@ -180,18 +182,18 @@ def insert_house_details(request):
 
 
 def insert_owner_details(request):
-        if request.method == "POST":
-            form = owner_form(request.POST)
-            print("__________________", form.errors)
-            if form.is_valid():
-                try:
-                    form.save()
-                    return redirect('/owner_table')
-                except:
-                    print("________________", sys.exc_info())
-        else:
-            form = owner_form()
-        return render(request, "owner_insertform.html",{'form':form})
+    if request.method == "POST":
+        form = owner_form(request.POST)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/owner_table')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = owner_form()
+    return render(request, "owner_insertform.html", {'form': form})
 
 
 def insert_area(request):
@@ -213,7 +215,7 @@ def insert_pg_details(request):
     own = owner.objects.all()
     are = area.objects.all()
     if request.method == "POST":
-        form = pg_details_form(request.POST,request.FILES)
+        form = pg_details_form(request.POST, request.FILES)
         print("__________________", form.errors)
         if form.is_valid():
             try:
@@ -241,11 +243,12 @@ def insert_tiffin_owner_details(request):
         form = tiffin_owner_form()
     return render(request, "tiffin_owner_insertform.html", {'form': form})
 
+
 def insert_tiffin_details(request):
     own = tiffin_owner.objects.all()
 
     if request.method == "POST":
-        form = tiffin_details_form(request.POST,request.FILES)
+        form = tiffin_details_form(request.POST, request.FILES)
         print("__________________", form.errors)
         if form.is_valid():
             try:
@@ -263,7 +266,7 @@ def insert_house_gallery(request):
     own = house_details.objects.all()
 
     if request.method == "POST":
-        form = house_gallery_form(request.POST,request.FILES)
+        form = house_gallery_form(request.POST, request.FILES)
         print("__________________", form.errors)
         if form.is_valid():
             try:
@@ -281,7 +284,7 @@ def insert_pg_gallery(request):
     own = pg_details.objects.all()
 
     if request.method == "POST":
-        form = pg_gallery_form(request.POST,request.FILES)
+        form = pg_gallery_form(request.POST, request.FILES)
         print("__________________", form.errors)
         if form.is_valid():
             try:
@@ -294,125 +297,136 @@ def insert_pg_gallery(request):
         form = tiffin_details_form()
     return render(request, "pg_gallery_insertform.html", {'form': form, 'own': own})
 
-def update_area(request,id):
-    are= area.objects.get(a_id=id)
-    form=area_form(request.POST,instance=are)
+
+def update_area(request, id):
+    are = area.objects.get(a_id=id)
+    form = area_form(request.POST, instance=are)
 
     if form.is_valid():
         form.save()
         return redirect("/area_table")
-    return render(request,'area_update.html',{'are':are})
+    return render(request, 'area_update.html', {'are': are})
 
 
-def update_house_details(request,id):
-    temp= house_details.objects.get(h_id=id)
-    form=house_details_form(request.POST,instance=temp)
-
+def update_house_details(request, id):
+    own = owner.objects.all()
+    are = area.objects.all()
+    temp = house_details.objects.get(h_id=id)
+    form = house_details_form(request.POST, instance=temp)
     if form.is_valid():
         form.save()
         return redirect("/house_details_table")
-    return render(request,'house_details_update.html',{'temp':temp})
+    return render(request, 'house_details_update.html', {'temp': temp, 'own': own, 'are': are})
 
 
-def update_owner(request,id):
-    temp= owner.objects.get(o_id=id)
-    form=owner_form(request.POST,instance=temp)
+def update_owner(request, id):
+    temp = owner.objects.get(o_id=id)
+    form = owner_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/owner_table")
-    return render(request,'owner_update.html',{'temp':temp})
+    return render(request, 'owner_update.html', {'temp': temp})
 
-def update_tiffin_owner(request,id):
-    temp= tiffin_owner.objects.get(to_id=id)
-    form=tiffin_owner_form(request.POST,instance=temp)
+
+def update_tiffin_owner(request, id):
+    temp = tiffin_owner.objects.get(to_id=id)
+    form = tiffin_owner_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/tiffin_owner_table")
-    return render(request,'tiffin_owner_update.html',{'temp':temp})
+    return render(request, 'tiffin_owner_update.html', {'temp': temp})
 
 
-def update_house_gallery(request,id):
-    temp= house_gallery.objects.get(gallery_id=id)
-    form=house_gallery_form(request.POST,instance=temp)
+def update_house_gallery(request, id):
+    temp1 = house_details.objects.all()
+    temp = house_gallery.objects.get(gallery_id=id)
+    form = house_gallery_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/house_gallery_table")
-    return render(request,'house_gallery_update.html',{'temp':temp})
+    return render(request, 'house_gallery_update.html', {'temp': temp,'temp1': temp1})
 
-def update_pg_gallery(request,id):
-    temp= pg_gallery.objects.get(pg_gallery_id=id)
-    form=pg_gallery_form(request.POST,instance=temp)
+
+def update_pg_gallery(request, id):
+    own = pg_details.objects.all()
+    temp = pg_gallery.objects.get(pg_gallery_id=id)
+    form = pg_gallery_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/pg_gallery_table")
-    return render(request,'pg_gallery_update.html',{'temp':temp})
+    return render(request, 'pg_gallery_update.html', {'temp': temp,'own':own})
 
 
-def update_pg_details(request,id):
-    temp= pg_details.objects.get(pg_id=id)
-    form=pg_details_form(request.POST,instance=temp)
+def update_pg_details(request, id):
+    own = owner.objects.all()
+    are = area.objects.all()
+    temp = pg_details.objects.get(pg_id=id)
+    form = pg_details_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/pg_details_table")
-    return render(request,'pg_details_update.html',{'temp':temp})
+    return render(request, 'pg_details_update.html', {'temp': temp,'own': own, 'are': are})
 
-def update_tiffin_details(request,id):
-    temp= tiffin_details.objects.get(tiff_id=id)
-    form=tiffin_details_form(request.POST,instance=temp)
+
+def update_tiffin_details(request, id):
+    own= tiffin_owner.objects.all()
+    temp = tiffin_details.objects.get(tiff_id=id)
+    form = tiffin_details_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/tiffin_details_table")
-    return render(request,'tiffin_details_update.html',{'temp':temp})
+    return render(request, 'tiffin_details_update.html', {'temp': temp,'own':own})
 
-def del_area(request,id):
-    temp=area.objects.get(a_id=id)
+
+def del_area(request, id):
+    temp = area.objects.get(a_id=id)
     temp.delete()
     return redirect("/area_table")
 
-def del_house_details(request,id):
-    temp=house_details.objects.get(h_id=id)
+
+def del_house_details(request, id):
+    temp = house_details.objects.get(h_id=id)
     temp.delete()
     return redirect("/house_details_table")
 
-def del_house_gallery(request,id):
-    temp=house_gallery.objects.get(gallery_id=id)
+
+def del_house_gallery(request, id):
+    temp = house_gallery.objects.get(gallery_id=id)
     temp.delete()
     return redirect("/house_gallery_table")
 
-def del_owner(request,id):
-    temp=owner.objects.get(o_id=id)
+
+def del_owner(request, id):
+    temp = owner.objects.get(o_id=id)
     temp.delete()
     return redirect("/owner_table")
 
-def del_pg_details(request,id):
-    temp=pg_details.objects.get(pg_id=id)
+
+def del_pg_details(request, id):
+    temp = pg_details.objects.get(pg_id=id)
     temp.delete()
     return redirect("/pg_details_table")
 
-def del_pg_gallery(request,id):
-    temp=pg_gallery.objects.get(pg_gallery_id=id)
+
+def del_pg_gallery(request, id):
+    temp = pg_gallery.objects.get(pg_gallery_id=id)
     temp.delete()
     return redirect("/pg_gallery_table")
 
-def del_tiffin_details(request,id):
-    temp=tiffin_details.objects.get(tiff_id=id)
+
+def del_tiffin_details(request, id):
+    temp = tiffin_details.objects.get(tiff_id=id)
     temp.delete()
     return redirect("/tiffin_details_table")
 
-def del_tiffin_owner(request,id):
-    temp=tiffin_owner.objects.get(to_id=id)
+
+def del_tiffin_owner(request, id):
+    temp = tiffin_owner.objects.get(to_id=id)
     temp.delete()
     return redirect("/tiffin_owner_table")
-
-
-
-
-
-
-
