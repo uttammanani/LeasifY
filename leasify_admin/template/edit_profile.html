@@ -1,0 +1,62 @@
+{% extends "admin_header.html" %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">EDIT ADMIN PROFILE</h4>
+                            <br>
+                            <form method="post" action="/update_admin/{{temp.admin_id}}">
+                                {% csrf_token %}
+                                <div class="mb-3 row">
+                                    <label for="example-text-input" class="col-md-2 col-form-label">Admin
+                                        Name</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="o_name" id="example-text-input" value="{{temp.admin_name}}">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="example-search-input" class="col-md-2 col-form-label">Admin Email</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="o_email" id="example-search-input" value="{{temp.admin_email}}">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                               <label for="example-color-input" class="col-md-2 col-form-label">Admin Password</label>
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control" id="example-color-input" name="o_pass" value="{{temp.admin_pass}}">
+                                            </div>
+                                        </div>
+                                <div class="mb-3 row">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="submit" value="Submit" style="color:red">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
+
+            <!-- end row -->
+
+
+            {% endblock %}

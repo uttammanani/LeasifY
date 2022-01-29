@@ -12,7 +12,40 @@ from leasify_admin.models import customer, owner, house_details, area, house_gal
     tiffin_owner, tiffin_details, status, notification, feedback, admin
 
 from leasify_admin.forms import house_details_form, owner_form, area_form, pg_details_form, tiffin_owner_form, \
-    tiffin_details_form, house_gallery_form, pg_gallery_form
+    tiffin_details_form, house_gallery_form, pg_gallery_form, admin_form
+
+from django.db import connection
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from django.views.generic import View
+
+
+class HomeView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "index.html")
+
+
+class ProjectChart(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        cursor = connection.cursor()
+        cursor.execute('''SELECT * from owner''')
+        qs = cursor.fetchall()
+
+        labels = []
+        default_items = []
+        for item in qs:
+            labels.append(item[0])  #id
+            default_items.append(item[1]) #other data
+        data = {
+            "labels": labels,#for id
+            "default": default_items, #for other data
+        }
+        return Response(data)
+
+
 
 
 def show(request):
@@ -327,6 +360,17 @@ def update_owner(request, id):
         form.save()
         return redirect("/owner_table")
     return render(request, 'owner_update.html', {'temp': temp})
+
+def update_admin(request):
+
+    admin_data= admin.objects.all()
+    temp = admin.objects.get(admin_id=id)
+    form = admin_form(request.POST, instance=temp)
+
+    if form.is_valid():
+        form.save()
+        return redirect("/index")
+    return render(request, 'edit_profile.html', {'temp': temp,'admin_data':admin_data})
 
 
 def update_tiffin_owner(request, id):
