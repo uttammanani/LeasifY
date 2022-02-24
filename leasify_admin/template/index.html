@@ -115,105 +115,79 @@
                 <!-- end col -->
             </div>
             <!-- end row -->
-{% include 'base.html' %}
-<script>
-	{% block jquery %}
-		var endpoint = '/api/chart/data/'
-		var defaultData = []
-		var labels = [];
-		$.ajax({
-			method: "GET",
-			url: endpoint,
-			success: function(data) {
-				labels = data.labels
-				defaultData = data.default
-				setChart()
-				},
-			error: function(error_data) {
-				console.log("error")
-				console.log(error_data)
-				}
-		})
 
-	function setChart() {
-		var ctx = document.getElementById("myChart");
-		var ctx2 = document.getElementById("myChart2");
-		var myChart = new Chart(ctx2, {
-		type: 'bar',
-		data: {
-			labels: labels,
-			datasets: [{
-				label: 'Total Appointment',
-				data: defaultData,
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-				borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			scales: {
-			yAxes: [{
-				ticks: {
-				beginAtZero: true
-				}
-			}]
-			}
-		}
-		});
-		var myChart = new Chart(ctx, {
-		type: 'polarArea',
-		data: {
-			labels: labels,
-			datasets: [{
-				label: '# of Votes',
-				data: defaultData,
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-				borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-				borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-				yAxes: [{
-					ticks: {
-					beginAtZero: true
-					}
-				}]
-			}
-			}
-			});
-			}
-			// var ctx = document.getElementById("myChart");
-		{% endblock %}
-</script>
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1">
+                                    <h5 class="card-title">Overview</h5>
+                                </div>
+                                <div class="flex-shrink-0">
+                                    <div>
+                                        <button type="button" class="btn btn-soft-secondary btn-sm">
+                                            ALL
+                                        </button>
+                                        <button type="button" class="btn btn-soft-primary btn-sm">
+                                            1M
+                                        </button>
+                                        <button type="button" class="btn btn-soft-secondary btn-sm">
+                                            6M
+                                        </button>
+                                        <button type="button" class="btn btn-soft-secondary btn-sm active">
+                                            1Y
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div id="mixed-chart" class="apex-charts" dir="ltr"></div>
+                            </div>
+                        </div>
+                        <!-- end card-body -->
+
+                        <div class="card-body border-top">
+                            <div class="text-muted text-center">
+                                <div class="row">
+                                    <div class="col-4 border-end">
+                                        <div>
+                                            <p class="mb-2"><i
+                                                    class="mdi mdi-circle font-size-12 text-primary me-1"></i> Expenses
+                                            </p>
+                                            <h5 class="font-size-16 mb-0">$ 8,524 <span
+                                                    class="text-success font-size-12"><i
+                                                    class="mdi mdi-menu-up font-size-14 me-1"></i>1.2 %</span></h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 border-end">
+                                        <div>
+                                            <p class="mb-2"><i class="mdi mdi-circle font-size-12 text-light me-1"></i>
+                                                Maintenance</p>
+                                            <h5 class="font-size-16 mb-0">$ 8,524 <span
+                                                    class="text-success font-size-12"><i
+                                                    class="mdi mdi-menu-up font-size-14 me-1"></i>2.0 %</span></h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div>
+                                            <p class="mb-2"><i class="mdi mdi-circle font-size-12 text-danger me-1"></i>
+                                                Profit</p>
+                                            <h5 class="font-size-16 mb-0">$ 8,524 <span
+                                                    class="text-success font-size-12"><i
+                                                    class="mdi mdi-menu-up font-size-14 me-1"></i>0.4 %</span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+
                 <div class="col-xl-4">
                     <div class="card">
                         <div class="card-body">

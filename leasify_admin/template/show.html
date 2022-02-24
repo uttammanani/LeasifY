@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Data</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Cust_id</th>
+        <th>Cust_name</th>
+        <th>Cust_email</th>
+        <th>Cust_phone</th>
+        <th>Cust_address</th>
+        <th>Action</th>
+        <th>Action2</th>
+
+    </tr>
+    {% for data in show1%}
+    <tr>
+        <td>{{data.c_id}}</td>
+        <td>{{data.c_name}}</td>
+        <td>{{data.c_email}}</td>
+        <td>{{data.c_ph}}</td>
+        <td>{{data.c_add}}</td>
+        <td><a href="#">Delete</a></td>
+        <td><a href="#">Edit</a></td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

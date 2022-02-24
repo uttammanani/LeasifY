@@ -13,12 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import leasify_client
 from django.contrib import admin
-from django.urls import path
-from leasify_admin import views
-from django.conf.urls import url
-from leasify_admin.views import HomeView, ProjectChart
+from django.urls import path, include
 
+from leasify_client import client_urls
+
+from leasify_admin import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -65,8 +66,6 @@ urlpatterns = [
     path('send_otp/', views.send_otp),
     path('reset/', views.set_password),
     path('index/', views.index),
-    url(r'charthome', HomeView.as_view(), name='home'),
-    url(r'^api/chart/data/$', ProjectChart.as_view(), name="api-data"),
-
+    path('client/', include(leasify_client.client_urls)),
 
 ]

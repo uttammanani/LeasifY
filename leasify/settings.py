@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'leasify_admin'
+    'leasify_admin',
+    'leasify_client',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,8 @@ ROOT_URLCONF = 'leasify.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'leasify_admin/template')],
+        'DIRS': [os.path.join(BASE_DIR,'leasify_admin/template'),
+                 os.path.join(BASE_DIR,'leasify_client/template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
