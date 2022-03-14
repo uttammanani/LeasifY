@@ -1,0 +1,44 @@
+{% extends "client_header.html" %}
+{% load static %}
+{% block content %}
+
+        <div class="clearfix"></div>
+        <!-- Header Container / End -->
+
+        <section class="headings">
+            <div class="text-heading text-center">
+                <div class="container">
+                    <h1>Login Help</h1>
+                    <h2><a href="index.html">Home </a> &nbsp;/&nbsp; login</h2>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION HEADINGS -->
+
+        <!-- START SECTION LOGIN -->
+        <div id="login">
+            <div class="login">
+                <form action="/Client/verify_otp/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>OTP</label>
+                        <input type="number" class="form-control" name="otpv">
+                        <i class="icon_mail_alt"></i>
+                    </div>
+                    <button href="#0" class="btn_1 rounded full-width" type="submit">Send</button>
+                    <div class="text-center add_top_10">New to Find Houses? <strong><a href="register.html">Sign up!</a></strong></div>
+                </form>
+            </div>
+        </div>
+        <!-- END SECTION LOGIN -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 
@@ -26,6 +25,7 @@ class customer(models.Model):
     otp=models.CharField(max_length=10,null=True)
     otp_used=models.IntegerField(default=0)
     c_gender=models.CharField(max_length=10)
+    c_is_admin=models.IntegerField(null=True)
 
     class Meta:
         db_table="customer"
@@ -134,7 +134,7 @@ class tiffin_details(models.Model):
     tiff_type=models.CharField(max_length=30)
     tiff_desc=models.CharField(max_length=300)
     tiff_imgpath=models.CharField(max_length=200)
-    tiff_price=models.IntegerField(max_length=10)
+    tiff_price=models.IntegerField(null = False)
 
     class Meta:
         db_table="Tiffn_Details"

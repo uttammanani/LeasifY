@@ -21,38 +21,26 @@
 
                 <form action="/Client/log/" method="post">
                     {% csrf_token %}
-<!--                    <div class="access_social">-->
-<!--                        <a href="#0" class="social_bt facebook">Login with Facebook</a>-->
-<!--                        <a href="#0" class="social_bt google">Login with Google</a>-->
-<!--                        <a href="#0" class="social_bt linkedin">Login with Linkedin</a>-->
-<!--                    </div>-->
-<!--                    <div class="divider"><span>Or</span></div>-->
                     <div class="form-group">
-                        <label>Name</label>
-                        <input type="email" class="form-control" name="admin_name">
-                        <i class="icon_mail_alt"></i>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" name="admin_email">
+                        <label>Username/Email</label>
+                        <input type="text" class="form-control" name="email" value="{{client_email}}">
                         <i class="icon_mail_alt"></i>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" name="..1
-      admin_pass">
+                        <input type="password" class="form-control" name="pass" value="{{client_password}}">
                         <i class="icon_lock_alt"></i>
                     </div>
                     <div class="fl-wrap filter-tags clearfix add_bottom_30">
                         <div class="checkboxes float-left">
                             <div class="filter-tags-wrap">
-                                <input id="check-b" type="checkbox" name="check">
+                                <input id="check-b" type="checkbox" name="remember">
                                 <label for="check-b">Remember me</label>
                             </div>
                         </div>
-                        <div class="float-right mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
+                        <div class="float-right mt-1"><a id="forgot" href="/Client/forgot/">Forgot Password?</a></div>
                     </div>
-                    <a href="#0" class="btn_1 rounded full-width">Login to Find Houses</a>
+                    <button class="btn_1 rounded full-width" type="submit">Login to Find Houses</button>
                     <div class="text-center add_top_10">New to Find Houses? <strong><a href="register.html">Sign up!</a></strong></div>
                 </form>
             </div>

@@ -1,5 +1,9 @@
+
 import sys
 import random
+
+
+
 
 from django.conf import settings
 from django.contrib import messages
@@ -36,7 +40,7 @@ def admin_login(request):
             messages.error(request, "Invalid Username and password")
             return redirect('/admin_login/')
     else:
-        return render(request, "admin_login.html")
+        return render(request,"admin_login.html")
 
 
 def forgot_pass(request):

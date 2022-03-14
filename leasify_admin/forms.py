@@ -1,5 +1,5 @@
 from leasify_admin.models import house_details, owner, area, pg_details, tiffin_owner, tiffin_details, house_gallery, \
-    pg_gallery, admin
+    pg_gallery, admin, customer
 from django import forms
 
 class house_details_form(forms.ModelForm):
@@ -7,6 +7,11 @@ class house_details_form(forms.ModelForm):
     class Meta:
         model=house_details
         fields=["h_add","h_imgpath","h_name","h_rent","h_type","h_parking","h_lift","h_desc","a_id","o_id"]
+
+class customer_form(forms.ModelForm):
+    class Meta:
+        model = customer
+        fields = ["c_name","c_email","c_phno","c_add","c_pass","c_gender","c_is_admin"]
 
 class owner_form(forms.ModelForm):
     class Meta:

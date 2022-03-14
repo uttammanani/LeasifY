@@ -31,14 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'leasify_admin.apps.LeasifyAdminConfig',
+    'leasify_client.apps.LeasifyClientConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'leasify_admin',
-    'leasify_client',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'leasify_admin/static/'),
+    os.path.join(BASE_DIR,'leasify_client/static/'),
 )
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static')
 
@@ -140,5 +141,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'harshtanna404@gmail.com'
-EMAIL_HOST_PASSWORD = 'mummasjaan654321'
+EMAIL_HOST_USER = 'leasify0101@gmail.com'
+EMAIL_HOST_PASSWORD = 'Home@0101'
