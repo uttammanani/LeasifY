@@ -5,7 +5,7 @@ from leasify_client import client_views
 urlpatterns = [
     path('home/',client_views.home),
     path('log/',client_views.login),
-    path('deshbored/',client_views.deshboard),
+    path('dashboard/',client_views.dashboard),
     path('checkout/',client_views.checkout),
     path('user_profile/',client_views.user_profile),
     path('about_us/',client_views.about_us),

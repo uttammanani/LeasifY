@@ -47,11 +47,11 @@ def login(request):
                 request.session['client_id'] = item.c_id
                 if request.POST.get("remember"):
                     print("==INSIDE COOKIEEEEEE=", )
-                    response = redirect("/Client/deshbored/")
+                    response = redirect("/Client/dashboard/")
                     response.set_cookie('cookie_client_email', request.POST["email"], 3600 * 24 * 365 * 2)
                     response.set_cookie('cookie_client_password', request.POST["pass"], 3600 * 24 * 365 * 2)
                     return response
-            return redirect('/Client/deshbored/')
+            return redirect('/Client/dashboard/')
 
         else:
             messages.error("invalid password")
@@ -66,8 +66,8 @@ def login(request):
             return render(request, 'client_login.html')
 
 
-def deshboard(request):
-    return render(request, 'client_deshbord.html')
+def dashboard(request):
+    return render(request, 'client_dashboard.html')
 
 
 def checkout(request):
