@@ -64,6 +64,6 @@ urlpatterns = [
     path('send_otp/', views.send_otp),
     path('reset/', views.set_password),
     path('index/', views.index),
-    path('Client/', include('leasify_client.urls')),
+    path('client/', include('leasify_client.urls')),
 
 ]

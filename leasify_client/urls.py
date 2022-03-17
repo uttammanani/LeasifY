@@ -14,5 +14,5 @@ urlpatterns = [
     path('setpass/',client_views.setpassword),
     path('forgot/',client_views.forgot),
     path('sendotp/',client_views.otp),
-    path('verify_otp/',client_views.verify_otp)
+    path('verify_otp/',client_views.verify_otp),
 ]
