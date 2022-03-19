@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from leasify_client import client_views
+import leasify_client
 
 urlpatterns = [
     path('home/',client_views.home),
@@ -15,4 +16,5 @@ urlpatterns = [
     path('forgot/',client_views.forgot),
     path('sendotp/',client_views.otp),
     path('verify_otp/',client_views.verify_otp),
+    # path('about_us',client_views.about_us),
 ]
