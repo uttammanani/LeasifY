@@ -1,0 +1,140 @@
+{% extends "client_header.html" %}
+{% load static %}
+{% block content %}
+
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+<!-- END SECTION HEADINGS -->
+
+<!-- START SECTION PROPERTIES LISTING -->
+<section class="properties-list featured portfolio blog">
+    <div class="container">
+        <section class="headings-2 pt-0 pb-0">
+            <div class="pro-wrapper">
+                <div class="detail-wrapper-body">
+                    <div class="listing-title-bar">
+                        <div class="text-heading text-left">
+                            <p><a href="index.html">Home </a> &nbsp;/&nbsp; <span>Listings</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Search Form -->
+        <!--/ End Search Form -->
+        <section class="headings-2 pt-0">
+            <div class="pro-wrapper">
+                <div class="detail-wrapper-body">
+                    <div class="listing-title-bar">
+                    </div>
+                </div>
+                <div class="cod-pad  single detail-wrapper mr-2 mt-0 d-flex justify-content-md-end align-items-center">
+                    <div class="input-group border rounded input-group-lg w-auto mr-4">
+                        <label class="input-group-text bg-transparent border-0 text-uppercase letter-spacing-093 pr-1 pl-3"
+                               for="inputGroupSelect01"><i class="fas fa-align-left fs-16 pr-2"></i>Sortby:</label>
+                        <select class="form-control border-0 bg-transparent shadow-none p-0 selectpicker sortby"
+                                data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
+                                id="inputGroupSelect01" name="sortby">
+                            <option selected>Top Selling</option>
+                            <option value="1">Most Viewed</option>
+                            <option value="2">Price(low to high)</option>
+                            <option value="3">Price(high to low)</option>
+                        </select>
+                    </div>
+                    <div class="sorting-options">
+                        <a href="properties-full-list-1.html" class="change-view-btn lde"><i class="fa fa-th-list"></i></a>
+                        <a href="#" class="change-view-btn active-view-btn"><i class="fa fa-th-large"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="row">
+            <div class="item col-lg-4 col-md-6 col-xs-12 landscapes sale">
+                {% for data in pg %}
+                <div class="project-single" data-aos="fade-up">
+                    <div class="project-inner project-head">
+                        <div class="homes">
+                            <!-- homes img -->
+                            <a href="single-property-1.html" class="homes-img">
+<!--                                <div class="homes-tag button alt featured">Featured</div>-->
+                                <div class="homes-tag button alt sale">For Rent</div>
+                                <div class="homes-price">{{data.pg_rent}}/mo</div>
+                                <img src="{% static 'assets/images/project/'%}{{ data.pg_imgpath }}" alt="home-1" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="button-effect">
+                            <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
+                            <a href="https://www.youtube.com/watch?v=14semTlwyUY" class="btn popup-video popup-youtube"><i
+                                    class="fas fa-video"></i></a>
+                            <a href="single-property-2.html" class="img-poppu btn"><i class="fa fa-photo"></i></a>
+                        </div>
+                    </div>
+                    <!-- homes content -->
+                    <div class="homes-content">
+                        <!-- homes address -->
+                        <h3><a href="single-property-1.html">{{data.pg_name}}</a></h3>
+                        <p class="homes-address mb-3">
+                            <a href="single-property-1.html">
+                                <i class="fa fa-map-marker"></i><span>{{data.pg_add}}</span>
+                            </a>
+                        </p>
+                        <!-- homes List -->
+                        <ul class="homes-list clearfix pb-3">
+                            <li class="the-icons">
+<!--                                <i class="flaticon-bed mr-2" aria-hidden="true"></i>-->
+                                <span>{{data.pg_beds}} bedrooms</span>
+                            </li>
+                            <li class="the-icons">
+<!--                                <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>-->
+                                <span>Food : {{data.pg_food}}</span>
+                            </li>
+                            <li class="the-icons">
+<!--                                <i class="flaticon-square mr-2" aria-hidden="true"></i>-->
+                                <span>WIFI : {{data.pg_wifi}}</span>
+                            </li>
+                            <li class="the-icons">
+<!--                                <i class="flaticon-car mr-2" aria-hidden="true"></i>-->
+                                <span> For : {{data.pg_for}}</span>
+                            </li>
+                            <li class="the-icons">
+<!--                                <i class="flaticon-car mr-2" aria-hidden="true"></i>-->
+                                <span> TV : {{data.pg_tv}}</span>
+                            </li>
+                            <li class="the-icons">
+<!--                                <i class="flaticon-car mr-2" aria-hidden="true"></i>-->
+                                <span> DECRIPTIONS : {{data.pg_desc}}</span>
+                            </li>
+                        </ul>
+<!--                        <div class="footer">-->
+<!--                            <a href="agent-details.html">-->
+<!--                                <img src="{% static 'images/testimonials/ts-1.jpg' %}" alt="" class="mr-2"> Lisa Jhonson-->
+<!--                            </a>-->
+<!--                            <span>2 months ago</span>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <nav aria-label="..." class="pt-3">
+            <ul class="pagination mt-0">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<!-- END SECTION PROPERTIES LISTING -->
+
+{% endblock %}

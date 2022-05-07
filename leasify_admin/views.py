@@ -1,10 +1,5 @@
-
 import sys
 import random
-
-
-
-
 from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -30,18 +25,54 @@ def loadadmin(request):
 
 def admin_login(request):
     if request.method == 'POST':
-        uname = request.POST['admin_name']
-        passsword = request.POST['admin_pass']
-        val = admin.objects.filter(admin_name=uname, admin_pass=passsword).count()
-        print("__________" + uname + "_______________" + passsword)
+        email = request.POST['email']
+        password = request.POST['pass']
+        val = admin.objects.filter(admin_email=email, admin_pass=password).count()
+        print("-------------------", email, "-----------------", password, val)
         if val == 1:
+            print("=====INSIDE IFFFFF")
+            udata = admin.objects.filter(admin_email=email, admin_pass=password)
+            for item in udata:
+                print("-----------------")
+                request.session['a_email'] = item.admin_email
+                request.session['a_pass'] = item.admin_pass
+
+                if request.POST.get("remember"):
+                    print("==INSIDE COOKIEEEEEE=", )
+                    response = redirect("/index/")
+                    response.set_cookie('cookie_a_email', request.POST["email"], 3600 * 24 * 365 * 2)
+                    response.set_cookie('cookie_a_password', request.POST["pass"], 3600 * 24 * 365 * 2)
+                    return response
             return redirect('/index/')
         else:
-            messages.error(request, "Invalid Username and password")
+            messages.error("invalid password")
             return redirect('/admin_login/')
     else:
-        return render(request,"admin_login.html")
+        if request.COOKIES.get("cookie_a_email"):
+            return render(request, "admin_login.html",
+                          {'a_email': request.COOKIES['cookie_a_email'],
+                           'a_password': request.COOKIES[
+                               'cookie_a_password']})
+        else:
+            return render(request, 'admin_login.html')
 
+
+    # if request.method == 'POST':
+    #     email = request.POST['email']
+    #     passsword = request.POST['pass']
+    #     val = admin.objects.filter(admin_email=email, admin_pass=passsword).count()
+    #     print("__________" + email + "_______________" + passsword, "----------" , val)
+    #     if val == 1:
+    #         adata=admin.objects.filter(admin_email=email, admin_pass=passsword,a_is_admin=1)
+    #         for item in adata:
+    #             request.session['admin_email']=item.admin
+    #         return redirect('/index/')
+    #     else:
+    #         messages.error(request, "Invalid Username and password")
+    #         return redirect('/admin_login/')
+    # else:
+    #     return render(request, "admin_login.html")
+    #
 
 def forgot_pass(request):
     return render(request, "forgot_pass.html")
@@ -332,16 +363,16 @@ def update_owner(request, id):
         return redirect("/owner_table")
     return render(request, 'owner_update.html', {'temp': temp})
 
-def update_admin(request):
 
-    admin_data= admin.objects.all()
+def update_admin(request):
+    admin_data = admin.objects.all()
     temp = admin.objects.get(admin_id=id)
     form = admin_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/index")
-    return render(request, 'edit_profile.html', {'temp': temp,'admin_data':admin_data})
+    return render(request, 'edit_profile.html', {'temp': temp, 'admin_data': admin_data})
 
 
 def update_tiffin_owner(request, id):
@@ -362,7 +393,7 @@ def update_house_gallery(request, id):
     if form.is_valid():
         form.save()
         return redirect("/house_gallery_table")
-    return render(request, 'house_gallery_update.html', {'temp': temp,'temp1': temp1})
+    return render(request, 'house_gallery_update.html', {'temp': temp, 'temp1': temp1})
 
 
 def update_pg_gallery(request, id):
@@ -373,7 +404,7 @@ def update_pg_gallery(request, id):
     if form.is_valid():
         form.save()
         return redirect("/pg_gallery_table")
-    return render(request, 'pg_gallery_update.html', {'temp': temp,'own':own})
+    return render(request, 'pg_gallery_update.html', {'temp': temp, 'own': own})
 
 
 def update_pg_details(request, id):
@@ -385,18 +416,18 @@ def update_pg_details(request, id):
     if form.is_valid():
         form.save()
         return redirect("/pg_details_table")
-    return render(request, 'pg_details_update.html', {'temp': temp,'own': own, 'are': are})
+    return render(request, 'pg_details_update.html', {'temp': temp, 'own': own, 'are': are})
 
 
 def update_tiffin_details(request, id):
-    own= tiffin_owner.objects.all()
+    own = tiffin_owner.objects.all()
     temp = tiffin_details.objects.get(tiff_id=id)
     form = tiffin_details_form(request.POST, instance=temp)
 
     if form.is_valid():
         form.save()
         return redirect("/tiffin_details_table")
-    return render(request, 'tiffin_details_update.html', {'temp': temp,'own':own})
+    return render(request, 'tiffin_details_update.html', {'temp': temp, 'own': own})
 
 
 def del_area(request, id):

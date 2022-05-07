@@ -1,0 +1,84 @@
+{% extends "client_header.html" %}
+{% load static %}
+{% block content %}
+
+        <!--START SECTION POPULAR PLACES -->
+        <div class="clearfix"></div>
+        <!-- Header Container / End -->
+
+        <section class="headings">
+            <div class="text-heading text-center">
+                <div class="container">
+                    <h1>Register</h1>
+                    <h2><a href="index.html">Home </a> &nbsp;/&nbsp; Register</h2>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION HEADINGS -->
+
+        <!-- START SECTION 404 -->
+        <div id="login">
+            <div class="login">
+                <form autocomplete="off"  action="/Client/home/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input class="form-control" type="text" name="c_name" minlength="3">
+
+
+                        <i class="ti-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input name="c_is_admin" class="form-control" value="0" type="hidden">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Email</label>
+                        <input class="form-control" type="email" name="c_email">
+                        <i class="icon_mail_alt"></i>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Contact No </label>
+                        <input class="form-control" type="number" name="c_phno"  pattern="[0-9]{10}">
+                        <i class="icon_mail_alt"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Address </label>
+                        <input class="form-control" type="text" name="c_add">
+                        <i class="icon_mail_alt"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your password</label>
+                        <input class="form-control" type="password" id="password1" name="c_pass" pattern="(?=.[0-9](?=.[!@#$%^&*
+                        ])[a-zA-Z0-9!@#$%^&*].{8,})">
+                        <i class="icon_lock_alt"></i>
+                    </div>
+
+                     <div class="form-group">
+                        <label>Gender</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="c_gender" value="1">
+                                    Male </label>
+                                &nbsp;
+                                &nbsp;
+                                 <label>
+                                    <input type="radio" name="c_gender" value="2">
+                                    Female </label>
+                            </div>
+                        <i class="icon_lock_alt"></i>
+                    </div>
+
+                    <div id="pass-info" class="clearfix"></div>
+                    <button href="#" class="btn_1 rounded full-width add_top_30" type="submit">Register Now!</button>
+                    <div class="text-center add_top_10">Already have an acccount? <strong><a href="login.html">Sign In</a></strong></div>
+                </form>
+            </div>
+        </div>
+        <!-- END SECTION 404 -->
+
+{% endblock %}
+        <!-- END SECTION PARTNERS -->

@@ -65,5 +65,4 @@ urlpatterns = [
     path('reset/', views.set_password),
     path('index/', views.index),
     path('Client/', include('leasify_client.urls')),
-
 ]

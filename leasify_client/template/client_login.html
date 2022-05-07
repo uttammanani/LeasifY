@@ -23,12 +23,12 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label>Username/Email</label>
-                        <input type="text" class="form-control" name="email" value="{{client_email}}">
+                        <input type="email" class="form-control" name="email" value="{{client_email}}" required>
                         <i class="icon_mail_alt"></i>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" name="pass" value="{{client_password}}">
+                        <input type="password" class="form-control" name="pass" value="{{client_password}}" required>
                         <i class="icon_lock_alt"></i>
                     </div>
                     <div class="fl-wrap filter-tags clearfix add_bottom_30">

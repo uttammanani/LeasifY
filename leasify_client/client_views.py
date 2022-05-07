@@ -8,13 +8,14 @@ from django.shortcuts import render, redirect
 from leasify_admin.models import customer
 from django.core.mail import send_mail
 from leasify import settings
-from leasify_admin.forms import customer_form
+#from leasify_admin.models import Booking
+from leasify_admin.forms import customer_form, house_details, pg_details
 
 
 # from leasify_admin.forms import Userform
 
 # Create your views here.
-def home(request):
+def register(request):
     if request.method == "POST":
         form = customer_form(request.POST)
         print("=======REGISTER", form)
@@ -25,11 +26,9 @@ def home(request):
                 return redirect('/cust_table/')
             except:
                 print("---------------", sys.exc_info())
-
     else:
         form = customer_form()
-
-    return render(request, 'client_home.html', {'form': form})
+    return render(request, 'client_registration.html', {'form': form})
 
 
 def login(request):
@@ -66,8 +65,8 @@ def login(request):
             return render(request, 'client_login.html')
 
 
-def deshboard(request):
-    return render(request, 'client_deshbord.html')
+def home(request):
+    return render(request, 'client_home.html')
 
 
 def checkout(request):
@@ -83,11 +82,19 @@ def about_us(request):
 
 
 def blog(request):
-    return render(request, 'client_blog.html')
+    book = Booking.objects.all()
+    # print("-----------",booking.bk_date)
+    return render(request, 'client_blog.html', {'booking': book})
 
 
 def contact_us(request):
     return render(request, 'client_contact-us.html')
+
+
+def properties_grid(request):
+    pg = pg_details.objects.all()
+    # print("==============", pg.pg_name)
+    return render(request, 'client_properties_full_grid.html', {"pg": pg})
 
 
 def setpassword(request):
@@ -114,8 +121,6 @@ def setpassword(request):
         return redirect("/Client/forgot/")
 
 
-
-
 def forgot(request):
     return render(request, 'client_forgot.html')
 
@@ -135,6 +140,7 @@ def otp(request):
         send_mail(subject, message, email_from, recipient_list)
         return render(request, 'client_otp.html')
 
+
 def verify_otp(request):
     if request.method == "POST":
         T_otp = request.POST['otpv']
@@ -146,3 +152,31 @@ def verify_otp(request):
             return render(request, "client_forgot.html")
     else:
         return render(request, "client_otp.html")
+
+
+def home_details(request):
+    home = house_details.objects.all()
+    return render(request, "client_home_details.html", {'home': home})
+
+
+def pg1_details(request):
+    pg1 = pg_details.objects.all()
+    return render(request, "client_pg_details.html", {'pg1': pg1})
+
+
+def home_desc(request, id):
+    home1 = house_details.objects.filter(h_id=id)
+    page = request.GET.get('page', 1)
+    print("page---------------", page)
+    return render(request, "client_home_description.html", {'home1': home1})
+
+
+def pg_desc(request, id):
+    p = pg_details.objects.filter(pg_id=id)
+    page = request.GET.get('page', 1)
+    print("page---------------", page)
+    return render(request, "client_pg_description.html", {"p": p})
+
+
+def mybookings(request):
+    return render(request,"client_mybookings.html")

@@ -1,0 +1,84 @@
+{% extends "client_header.html" %}
+{% load static %}
+{% block content %}
+
+        <div class="clearfix"></div>
+        <!-- START SECTION SHOP -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 blog-pots">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row space2 pb-4 thumax-2">
+                                    <div class="col-md-6">
+                                        <div class="single-portfolio">
+                                            <div class="portfolio-img">
+                                                <div class="popup-images">
+                                                    <a class="popup-img" href="{% static 'images/shop/shop-1.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-1.jpg' %}" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% for data in p%}
+                                      <div class="col-md-6 single-p-info shop">
+                                        <h2 class="mb-3">{{data.pg_name}}</h2>
+                                        <ul class="starts text-left">
+                                            <li class="mb-0"><i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="mb-0"><i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="mb-0"><i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="mb-0"><i class="fa fa-star"></i>
+                                            </li>
+                                            <li class="mb-0"><i class="fa fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <p>Address :- {{data.pg_add}}</p>
+                                        <p>Rent :- {{data.pg_rent}} <br>PG For :- {{data.pg_for}}<br>Food :- {{data.pg_food}}<br>TV :- {{data.pg_tv}}</p><br>
+                                        <a class="btn1 btn-sm" href="#"><i class="fa fa-shopping-cart mr-2"></i>Book Now</a>
+                                        <div class="text-left">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 thumax-2">
+                                        <div class="single-portfolio thumax">
+                                            <div class="portfolio-img">
+                                                <div class="popup-images">
+                                                    <a class="popup-img" href="{% static 'images/shop/shop-2.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-2.jpg' %}" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 thumax-2">
+                                        <div class="single-portfolio thumax">
+                                            <div class="portfolio-img">
+                                                <div class="popup-images">
+                                                    <a class="popup-img" href="{% static 'images/shop/shop-3.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-3.jpg' %}" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="single-portfolio thumax">
+                                            <div class="portfolio-img">
+                                                <div class="popup-images">
+                                                    <a class="popup-img" href="{% static 'images/shop/shop-4.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-4.jpg' %}" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-info details mb-30 mt-5">
+                                    <h5 class="mb-4">Description</h5>
+                                    <p class="mb-3">{{data.pg_desc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                       {% endfor %}
+                    </div>
+                </div>
+
+{% endblock %}

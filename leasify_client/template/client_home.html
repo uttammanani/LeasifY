@@ -2,74 +2,853 @@
 {% load static %}
 {% block content %}
 
-        <!--START SECTION POPULAR PLACES -->
-        <div class="clearfix"></div>
         <!-- Header Container / End -->
+        <!-- STAR HEADER SEARCH -->
+       <video width="1550" height="580"loop="true" autoplay="autoplay" controls="controls" id="vid">
+  <source src="{% static 'images/add.mp4' %}" type="video/mp4">
 
-        <section class="headings">
-            <div class="text-heading text-center">
-                <div class="container">
-                    <h1>Register</h1>
-                    <h2><a href="index.html">Home </a> &nbsp;/&nbsp; Register</h2>
+
+</video>
+            <div class="hero-main">
+                <div class="container" data-aos="zoom-in">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="hero-inner">
+                                <!-- Welcome Text -->
+
+                                <!--/ End Welcome Text -->
+                                <!-- Search Form -->
+
+                                <!--/ End Search Form -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- END SECTION HEADINGS -->
-
-        <!-- START SECTION 404 -->
-        <div id="login">
-            <div class="login">
-                <form autocomplete="off"  action="/Client/home/" method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label>Your Name</label>
-                        <input class="form-control" type="text" name="c_name">
-
-
-                        <i class="ti-user"></i>
+        <!-- END HEADER SEARCH -->
+        
+        <!-- START SECTION FEATURED PROPERTIES -->
+        <section class="recently portfolio bg-white-1 rec-pro2 hmp ho-17">
+            <div class="container-fluid">
+                <div class="sec-title">
+                    <h2><span>Featured </span>Properties</h2>
+                    <p>These are our featured properties</p>
+                </div>
+                <div class="row portfolio-items">
+                    <div class="item col-lg-4 col-md-6 col-xs-12 landscapes sale" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="landscapes listing-item compact thehp-1">
+                            <a href="single-property-1.html" class="recent-16 hmp" data-aos="fade-up">
+                                <div class="recent-img16 img-fluid img-center" style="background-image: url(images/feature-properties/fp-8.jpg);"></div>
+                                <div class="recent-content"></div>
+                                <div class="listing-badges">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="recent-details">
+                                    <div class="recent-title">Luxury House in New York</div>
+                                    <div class="price-details">
+                                    <div class="recent-price mb-3">$230,000</div>
+                                    <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Br <span class="mr-1">|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Ba <span class="mr-1">|</span><i class="fa fa-car mr-1" aria-hidden="true"></i> 2 Gr <span class="mr-1">|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                </div>
+                                <div class="view-proper">View Details</div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input name="c_is_admin" class="form-control" value="0" type="hidden">
-
+                    <div class="item col-lg-4 col-md-6 col-xs-12 people rent" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="people listing-item compact thehp-2">
+                            <a href="single-property-1.html" class="recent-16 hmp" data-aos="fade-up">
+                                <div class="recent-img16 img-center" style="background-image: url(images/feature-properties/fp-9.jpg);"></div>
+                                <div class="recent-content"></div>
+                                <div class="listing-badges">
+                                    <span>For Rent</span>
+                                </div>
+                                <div class="recent-details">
+                                    <div class="recent-title">Villa House in Los Angeles</div>
+                                    <div class="price-details">
+                                    <div class="recent-price mb-3">$230,000</div>
+                                    <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Br <span class="mr-1">|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Ba <span class="mr-1">|</span><i class="fa fa-car mr-1" aria-hidden="true"></i> 2 Gr <span class="mr-1">|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                </div>
+                                <div class="view-proper">View Details</div>
+                            </a>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Your Email</label>
-                        <input class="form-control" type="email" name="c_email">
-                        <i class="icon_mail_alt"></i>
+                    <div class="item col-lg-4 col-md-6 col-xs-12 people landscapes sale" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
+                            <a href="single-property-1.html" class="recent-16 hmp" data-aos="fade-up">
+                                <div class="recent-img16 img-center" style="background-image: url(images/feature-properties/fp-10.jpg);"></div>
+                                <div class="recent-content"></div>
+                                <div class="listing-badges">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="recent-details">
+                                    <div class="recent-title">Family House in San Francisco</div>
+                                    <div class="price-details">
+                                    <div class="recent-price mb-3">$230,000</div>
+                                    <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Br <span class="mr-1">|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Ba <span class="mr-1">|</span><i class="fa fa-car mr-1" aria-hidden="true"></i> 2 Gr <span class="mr-1">|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                </div>
+                                <div class="view-proper">View Details</div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Your Contact No </label>
-                        <input class="form-control" type="number" name="c_phno">
-                        <i class="icon_mail_alt"></i>
+                    <div class="item col-lg-4 col-md-6 col-xs-12 people landscapes sale" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="landscapes listing-item compact thehp-2">
+                            <a href="single-property-1.html" class="recent-16 hmp" data-aos="fade-up">
+                                <div class="recent-img16 img-center" style="background-image: url(images/interior/p-4.jpg);"></div>
+                                <div class="recent-content"></div>
+                                <div class="listing-badges">
+                                    <span>For Rent</span>
+                                </div>
+                                <div class="recent-details">
+                                    <div class="recent-title">Condo House in Miami</div>
+                                    <div class="price-details">
+                                    <div class="recent-price mb-3">$230,000</div>
+                                    <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Br <span class="mr-1">|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Ba <span class="mr-1">|</span><i class="fa fa-car mr-1" aria-hidden="true"></i> 2 Gr <span class="mr-1">|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                </div>
+                                <div class="view-proper">View Details</div>
+                            </a>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Your Address </label>
-                        <input class="form-control" type="text" name="c_add">
-                        <i class="icon_mail_alt"></i>
+                    <div class="item col-lg-4 col-md-6 it2 col-xs-12 web rent h-177 no-pb" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
+                            <a href="single-property-1.html" class="recent-16 hmp" data-aos="fade-up">
+                                <div class="recent-img16 img-center" style="background-image: url(images/feature-properties/fp-12.jpg);"></div>
+                                <div class="recent-content"></div>
+                                <div class="listing-badges">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="recent-details">
+                                    <div class="recent-title">Luxury House in Chicago</div>
+                                    <div class="price-details">
+                                    <div class="recent-price mb-3">$230,000</div>
+                                    <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Br <span class="mr-1">|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Ba <span class="mr-1">|</span><i class="fa fa-car mr-1" aria-hidden="true"></i> 2 Gr <span class="mr-1">|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                </div>
+                                <div class="view-proper">View Details</div>
+                            </a>
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Your password</label>
-                        <input class="form-control" type="password" id="password1" name="c_pass">
-                        <i class="icon_lock_alt"></i>
+                    <div class="item col-lg-4 col-md-6 it2 col-xs-12 web rent ho17-thelast no-pb" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="people landscapes no-pb pbp-3 listing-item compact thehp-2">
+                            <a href="single-property-1.html" class="recent-16 hmp" data-aos="fade-up">
+                                <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-6.jpg);"></div>
+                                <div class="recent-content"></div>
+                                <div class="listing-badges">
+                                    <span>For Rent</span>
+                                </div>
+                                <div class="recent-details">
+                                    <div class="recent-title">Luxury House in Toronto</div>
+                                    <div class="price-details">
+                                    <div class="recent-price mb-3">$230,000</div>
+                                    <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Br <span class="mr-1">|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Ba <span class="mr-1">|</span><i class="fa fa-car mr-1" aria-hidden="true"></i> 2 Gr <span class="mr-1">|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                </div>
+                                <div class="view-proper">View Details</div>
+                            </a>
+                        </div>
                     </div>
-
-                     <div class="form-group">
-                        <label>Gender</label>
-                        <input class="form-control" name="c_gender">
-                        <i class="icon_lock_alt"></i>
-                    </div>
-
-                    <div id="pass-info" class="clearfix"></div>
-                    <button href="#" class="btn_1 rounded full-width add_top_30" type="submit">Register Now!</button>
-                    <div class="text-center add_top_10">Already have an acccount? <strong><a href="login.html">Sign In</a></strong></div>
-                </form>
+                </div>
+                <div class="bg-all">
+                    <a href="properties-full-grid-1.html" class="btn btn-outline-light">View All</a>
+                </div>
             </div>
-        </div>
-        <!-- END SECTION 404 -->
+        </section>
+        <!-- END SECTION FEATURED PROPERTIES -->            
+        
+        <!-- START SECTION WHY CHOOSE US -->
+        <section class="how-it-works bg-white rec-pro">
+            <div class="container-fluid">
+                <div class="sec-title">
+                    <h2><span>Why </span>Choose Us</h2>
+                    <p>We provide full service at every step.</p>
+                </div>
+                <div class="row service-1">
+                    <article class="col-lg-3 col-md-6 col-xs-12 serv" data-aos="fade-up" data-aos-delay="150">
+                        <div class="serv-flex">
+                            <div class="art-1 img-13">
+                                <img src="{% static 'images/icons/icon-4.svg' %}" alt="">
+                                <h3>Wide Renge Of Properties</h3>
+                            </div>
+                            <div class="service-text-p">
+                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-lg-3 col-md-6 col-xs-12 serv" data-aos="fade-up" data-aos-delay="250">
+                        <div class="serv-flex">
+                            <div class="art-1 img-14">
+                                <img src="{% static 'images/icons/icon-5.svg'%}" alt="">
+                                <h3>Trusted by thousands</h3>
+                            </div>
+                            <div class="service-text-p">
+                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-lg-3 col-md-6 col-xs-12 serv mb-0 pt" data-aos="fade-up" data-aos-delay="350">
+                        <div class="serv-flex arrow">
+                            <div class="art-1 img-15">
+                                <img src="{% static 'images/icons/icon-6.svg' %}" alt="">
+                                <h3>Financing made easy</h3>
+                            </div>
+                            <div class="service-text-p">
+                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-lg-3 col-md-6 col-xs-12 serv mb-0 pt its-2" data-aos="fade-up" data-aos-delay="450">
+                        <div class="serv-flex">
+                            <div class="art-1 img-14">
+                                <img src="{% static 'images/icons/icon-15.svg' %}" alt="">
+                                <h3>We are here near you</h3>
+                            </div>
+                            <div class="service-text-p">
+                                <p class="text-center">lorem ipsum dolor sit amet, consectetur pro adipisici consectetur debits adipisicing lacus consectetur Business Directory.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION WHY CHOOSE US -->
+
+        <!-- START SECTION PROPERTIES FOR SALE -->
+        <section class="recently portfolio featured bg-white-1 rec-pro">
+            <div class="container-fluid">
+                <div class="sec-title">
+                    <h2><span>Propeties for </span>Sale</h2>
+                    <p>These are our properties for sale</p>
+                </div>
+                <div class="portfolio col-xl-12 p-0">
+                    <div class="slick-lancers">
+                        <div class="agents-grid">
+                            <div class="landscapes listing-item compact thehp-1" data-aos="fade-up" data-aos-delay="150">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-fluid img-center" style="background-image: url(images/feature-properties/fp-8.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">                                        
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <5div class="agents-grid" data-aos="fade-up" data-aos-delay="250">
+                            <div class="people listing-item compact thehp-1">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/feature-properties/fp-9.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Family Apartment</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </5div>
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="350">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/feature-properties/fp-10.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Villa House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="450">
+                            <div class="landscapes listing-item compact thehp-1">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/interior/p-4.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury Condo</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="550">
+                            <div class="people listing-item compact thehp-1">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/interior/p-5.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-6.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
+                                <a href="sisingle-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-1.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-2.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-1">
+                                <a href="single-property-1.html" class="recent-16">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-3.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Sale</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION PROPERTIES FOR SALE -->
+        
+        <!-- START SECTION PROPERTIES FOR RENT -->
+        <section class="recently portfolio bg-white-1 rec-pro pt-3">
+            <div class="container-fluid">
+                <div class="sec-title">
+                    <h2><span>Propeties for </span>Rent</h2>
+                    <p>These are our properties for rent</p>
+                </div>
+                <div class="portfolio col-xl-12 p-0">
+                    <div class="slick-lancers">
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="150">
+                            <div class="landscapes listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-fluid img-center" style="background-image: url(images/interior/p-1.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="250">
+                            <div class="people listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/interior/p-2.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Family Apartment</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="350">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/interior/p-3.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Villa House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="450">
+                            <div class="landscapes listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/feature-properties/fp-11.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury Condo</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up" data-aos-delay="550">
+                            <div class="people listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/feature-properties/fp-12.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-6.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-2">
+                                <a href="sisingle-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-1.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-2.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="agents-grid" data-aos="fade-up">
+                            <div class="people landscapes no-pb pbp-3 listing-item compact thehp-2">
+                                <a href="single-property-1.html" class="recent-16" data-aos="fade-up">
+                                    <div class="recent-img16 img-center" style="background-image: url(images/single-property/s-3.jpg);"></div>
+                                    <div class="recent-content"></div>
+                                    <div class="listing-badges">
+                                        <span>For Rent</span>
+                                    </div>
+                                    <div class="recent-details">
+                                        <div class="recent-title">Luxury House</div>
+                                        <div class="recent-price mb-3">$230,000</div>
+                                        <div class="house-details thehp-1"><i class="fa fa-bed mr-1" aria-hidden="true"></i> 6 Bed <span>|</span><i class="fa fa-bath mr-1" aria-hidden="true"></i> 3 Bath <span>|</span><i class="fa fa-object-group mr-1" aria-hidden="true"></i> 720 sq ft</div>
+                                    </div>
+                                    <div class="view-proper">View Details</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION PROPERTIES FOR RENT -->  
+
+        <!-- START SECTION CONTACT US -->
+        <section class="request info-help" id="quote">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12" data-aos="fade-right">
+                        <h3>Ready to get started?</h3>
+                        <form id="contactform" class="contact-form" name="contactform" method="post" novalidate>
+                            <div id="success" class="successform">
+                                <p class="alert alert-success font-weight-bold" role="alert">Your message was sent successfully!</p>
+                            </div>
+                            <div id="error" class="errorform">
+                                <p>Something went wrong, try refreshing and submitting the form again.</p>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required class="form-control input-custom input-full" name="firstname" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" required class="form-control input-custom input-full" name="phonenumber" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-custom input-full" name="email" placeholder="Your Email">
+                            </div>
+                            <div class="form-group mb-1">
+                                <textarea class="form-control textarea-custom input-full" id="ccomment" name="message" required rows="1" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" id="submit-contact" class="btn btn-primary btn-lg">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-5 col-md-12 bgc" data-aos="fade-left">
+                        <div class="call-info">
+                            <h3 Contact Details</h3>
+                            <p class="mb-5">Please find below contact details and contact us today!</p>
+                            <ul>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        <p class="in-p">95 South Park Ave, USA</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                        <p class="in-p">+456 875 369 208</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <p class="in-p ti">support@findhouses.com</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="info cll">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        <p class="in-p ti">8:00 a.m - 9:00 p.m</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION CONTACT US -->                
+        
+        <!-- START SECTION AGENTS -->
+        <section class="team bg-white rec-pro">
+            <div class="container-fluid">
+                <div class="sec-title">
+                    <h2><span>Meet Our </span>Agents</h2>
+                    <p>Our Agents are here to help you</p>
+                </div>
+                <div class="row team-all">
+                    <!--Team Block-->
+                    <div class="team-block col-sm-6 col-md-4 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="150">
+                        <div class="inner-box team-details">
+                            <div class="image team-head">
+                                <a href="agents-listing-grid.html"><img src="{% static 'images/team/t-5.jpg' %}" alt="" /></a>
+                                <div class="team-hover">
+                                    <ul class="team-social">
+                                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="agents-listing-grid.html">Carls Jhons</a></h3>
+                                <div class="designation">Real Estate Agent</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Team Block-->
+                    <div class="team-block col-sm-6 col-md-4 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="250">
+                        <div class="inner-box team-details">
+                            <div class="image team-head">
+                                <a href="agents-listing-grid.html"><img src="{% static 'images/team/t-6.jpg'%}" alt="" /></a>
+                                <div class="team-hover">
+                                    <ul class="team-social">
+                                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="agents-listing-grid.html">Arling Tracy</a></h3>
+                                <div class="designation">Real Estate Agent</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Team Block-->
+                    <div class="team-block col-sm-6 col-md-4 col-lg-4 col-xl-2" data-aos="fade-up" data-aos-delay="350">
+                        <div class="inner-box team-details">
+                            <div class="image team-head">
+                                <a href="agents-listing-grid.html"><img src="{% static 'images/team/t-7.jpg' %}" alt="" /></a>
+                                <div class="team-hover">
+                                    <ul class="team-social">
+                                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="agents-listing-grid.html">Mark Web</a></h3>
+                                <div class="designation">Real Estate Agent</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Team Block-->
+                    <div class="team-block col-sm-6 col-md-4 col-lg-4 col-xl-2 pb-none" data-aos="fade-up" data-aos-delay="450">
+                        <div class="inner-box team-details">
+                            <div class="image team-head">
+                                <a href="agents-listing-grid.html"><img src="{% static 'images/team/t-8.jpg' %}" alt="" /></a>
+                                <div class="team-hover">
+                                    <ul class="team-social">
+                                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="agents-listing-grid.html">Katy Grace</a></h3>
+                                <div class="designation">Real Estate Agent</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-block col-sm-6 col-md-4 col-lg-4 col-xl-2 pb-none" data-aos="fade-up" data-aos-delay="550">
+                        <div class="inner-box team-details">
+                            <div class="image team-head">
+                                <a href="agents-listing-grid.html"><img src="{% static 'images/team/team-image-2.jpg' %}" alt="" /></a>
+                                <div class="team-hover">
+                                    <ul class="team-social">
+                                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="agents-listing-grid.html">Chris Melo</a></h3>
+                                <div class="designation">Real Estate Agent</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-block col-sm-6 col-md-4 col-lg-4 col-xl-2 pb-none" data-aos="fade-up" data-aos-delay="650">
+                        <div class="inner-box team-details">
+                            <div class="image team-head">
+                                <a href="agents-listing-grid.html"><img src="{% static 'images/team/team-image-7.jpg' %}" alt="" /></a>
+                                <div class="team-hover">
+                                    <ul class="team-social">
+                                        <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="agents-listing-grid.html">Nina Thomas</a></h3>
+                                <div class="designation">Real Estate Agent</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION AGENTS -->
+        
+        <!-- START SECTION POPULAR PLACES -->
+        <section class="visited-cities bg-white-1 rec-pro">
+            <div class="container-fluid">
+               <div class="sec-title">
+                    <h2><span>Most Popular </span>Places</h2>
+                    <p>Explore the world of real estate.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                    <div class="col-lg-3 col-md-6 pr-1" data-aos="zoom-in" data-aos-delay="150">
+                        <!-- Image Box -->
+                        <a href="listing-details.html" class="img-box hover-effect">
+                            <img src="{% static 'images/popular-places/7.jpg' %}" class="img-responsive" alt="">
+                            <!-- Badge -->
+                            <div class="img-box-content visible">
+                                <h4 class="mb-2">New York</h4>
+                                <span>203 Properties</span>
+                                <ul class="starts text-center mt-2">
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 pr-1" data-aos="zoom-in" data-aos-delay="250">
+                        <!-- Image Box -->
+                        <a href="listing-details.html" class="img-box hover-effect">
+                            <img src="{% static 'images/popular-places/8.jpg' %}" class="img-responsive" alt="">
+                            <div class="img-box-content visible">
+                                <h4 class="mb-2">Los Angeles</h4>
+                                <span>307 Properties</span>
+                                <ul class="starts text-center mt-2">
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star-half"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 pr" data-aos="zoom-in" data-aos-delay="350">
+                        <!-- Image Box -->
+                        <a href="listing-details.html" class="img-box hover-effect">
+                            <img src="{% static 'images/popular-places/9.jpg' %}" class="img-responsive" alt="">
+                            <div class="img-box-content visible">
+                                <h4 class="mb-2">Miami </h4>
+                                <span>409 Properties</span>
+                                <ul class="starts text-center mt-2">
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 pr-1" data-aos="zoom-in" data-aos-delay="450">
+                        <!-- Image Box -->
+                        <a href="listing-details.html" class="img-box san no-mb x3 hover-effect">
+                            <img src="{% static 'images/popular-places/10.jpg' %}" class="img-responsive" alt="">
+                            <div class="img-box-content visible">
+                                <h4 class="mb-2">Chicago</h4>
+                                <span>507 Properties</span>
+                                <ul class="starts text-center mt-2">
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star"></i>
+                                    </li>
+                                    <li><i class="fa fa-star-half"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END SECTION POPULAR PLACES -->
 
 {% endblock %}
-        <!-- END SECTION PARTNERS -->
-
