@@ -11,7 +11,7 @@ class house_details_form(forms.ModelForm):
 class customer_form(forms.ModelForm):
     class Meta:
         model = customer
-        fields = ["c_name","c_email","c_phno","c_add","c_pass","c_gender","c_is_admin"]
+        fields = ["c_name","c_email","c_phno","c_add","c_pass","c_gender"]
 
 class owner_form(forms.ModelForm):
     class Meta:

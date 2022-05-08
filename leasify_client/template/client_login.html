@@ -31,17 +31,12 @@
                         <input type="password" class="form-control" name="pass" value="{{client_password}}" required>
                         <i class="icon_lock_alt"></i>
                     </div>
-                    <div class="fl-wrap filter-tags clearfix add_bottom_30">
-                        <div class="checkboxes float-left">
-                            <div class="filter-tags-wrap">
-                                <input id="check-b" type="checkbox" name="remember">
-                                <label for="check-b">Remember me</label>
-                            </div>
-                        </div>
-                        <div class="float-right mt-1"><a id="forgot" href="/Client/forgot/">Forgot Password?</a></div>
-                    </div>
+
+                        <b><label>You are:</label><br> <input type="radio" name="rad" value="c">Customer<br><input type="radio" name="rad" value="h">House/PG Owner <br> <input type="radio" name="rad" value="t">Tiffin Owner
+                       </b><br> <div class="float-right mt-1"><a id="forgot" href="/Client/forgot/">Forgot Password?</a></div><br><br>
+
                     <button class="btn_1 rounded full-width" type="submit">Login to Find Houses</button>
-                    <div class="text-center add_top_10">New to Find Houses? <strong><a href="register.html">Sign up!</a></strong></div>
+                    <div class="text-center add_top_10">New to Find Houses? <strong><a href="/Client/register">Sign up!</a></strong></div>
                 </form>
             </div>
         </div>

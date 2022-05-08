@@ -29,7 +29,7 @@ class customer(models.Model):
     otp = models.CharField(max_length=10, null=True)
     otp_used = models.IntegerField(default=0)
     c_gender = models.CharField(max_length=10)
-    c_is_admin = models.IntegerField(null=True)
+    #c_is_admin = models.IntegerField(null=True)
 
     class Meta:
         db_table = "customer"
@@ -188,12 +188,12 @@ class feedback(models.Model):
         db_table = "Feedback"
 
 
-# class Booking(models.Model):
-#     bk_id = models.AutoField(primary_key=True)
-#     h_id = models.ForeignKey(house_details, on_delete=models.CASCADE)
-#     pg_id = models.ForeignKey(pg_details, on_delete=models.CASCADE)
-#     bk_date = models.DateField(null=False)
-#     bk_status = models.CharField(max_length=50, null=False)
-#
-#     class Meta:
-#         db_table = "booking"
+class Booking(models.Model):
+    bk_id = models.AutoField(primary_key=True)
+    h_id = models.ForeignKey(house_details, on_delete=models.CASCADE)
+    pg_id = models.ForeignKey(pg_details, on_delete=models.CASCADE)
+    tiff_id = models.ForeignKey(tiffin_details, on_delete=models.CASCADE)
+    bk_date = models.DateField(null=False)
+
+    class Meta:
+        db_table = "booking"

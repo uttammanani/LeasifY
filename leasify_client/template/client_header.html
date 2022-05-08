@@ -2,6 +2,8 @@
 
 <html lang="zxx">
 
+
+<!-- Mirrored from code-theme.com/html/findhouses/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Dec 2021 09:05:43 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,8 +50,8 @@
                 <!-- Left Side Content -->
                 <div class="left-side">
                     <!-- Logo -->
-                    <div id="logo">
-                        <a href="index.html"><img src="{% static 'images/L_logo.png' %}" alt=""></a>
+                    <div id="logo" style="margin-left:50px;margin-top:13px;">
+                        <a href="/Client/home/"><img src="{% static 'images/L_logo.png' %}" alt="" style="height:30px; width:90px;"/></a>
                     </div>
                     <!-- Mobile Navigation -->
                     <div class="mmenu-trigger">
@@ -62,7 +64,7 @@
                     <!-- Main Navigation -->
                     <nav id="navigation" class="style-1">
                         <ul id="responsive">
-                            <li><a href="#">Home</a>
+                            <li><a href="/Client/home/">Home</a>
 
                             </li>
                             <li><a href="#">Listing</a>
@@ -78,11 +80,12 @@
 
                             </li>
                             <li><a href="contact-us.html">Contact</a></li>
+
+
+
                             <li class="d-none d-xl-none d-block d-lg-block"><a href="login.html">Login</a></li>
-                            <li class="d-none d-xl-none d-block d-lg-block"><a href="register.html">Register</a></li>
-                            <li class="d-none d-xl-none d-block d-lg-block mt-5 pb-4 ml-5 border-bottom-0"><a
-                                    href="add-property.html" class="button border btn-lg btn-block text-center">Add
-                                Listing<i class="fas fa-laptop-house ml-2"></i></a></li>
+
+
                         </ul>
                     </nav>
                     <!-- Main Navigation / End -->
@@ -90,35 +93,30 @@
                 <!-- Left Side Content / End -->
 
                 <!-- Right Side Content / End -->
-                <div class="right-side d-none d-none d-lg-none d-xl-flex">
-                    <!-- Header Widget -->
-                    <div class="header-widget">
-                        <a href="add-property.html" class="button border">Add Listing<i
-                                class="fas fa-laptop-house ml-2"></i></a>
-                    </div>
-                    <!-- Header Widget / End -->
-                </div>
+
                 <!-- Right Side Content / End -->
 
                 <!-- Right Side Content / End -->
-                <div class="header-user-menu user-menu add">
-                    <div class="header-user-name">
-                        <span><img src="{% static 'images/testimonials/ts-1.jpg' %}" alt=""></span>Hi, Mary!
-                    </div>
-                    <ul>
-                        <li><a href="user-profile.html"> Edit profile</a></li>
-                        <li><a href="add-property.html"> Add Property</a></li>
-                        <li><a href="payment-method.html"> Payments</a></li>
-                        <li><a href="change-password.html"> Change Password</a></li>
-                        <li><a href="#">Log Out</a></li>
-                    </ul>
+
+                       {% if request.session.name %}
+                <div class="header-user-menu user-menu add" >
+                    <div class="header-user-name" style="margin-right:30px;">
+                        Hi, {{ request.session.name }}
+                             </div>
+
                 </div>
+                        {% endif %}
+
                 <!-- Right Side Content / End -->
 
                 <div class="right-side d-none d-none d-lg-none d-xl-flex sign ml-0">
                     <!-- Header Widget -->
                     <div class="header-widget sign-in">
-                        <div class="show-reg-form modal-open"><a href="#">Sign In</a></div>
+                         {% if request.session.cust_id or request.session.owner_id or request.session.tiffin_owner_id %}
+                       <a href="/Client/logout">Logout</a>
+                        {% else %}
+                        <a href="/Client/log/">Login</a>
+                        {% endif %}
                     </div>
                     <!-- Header Widget / End -->
                 </div>
@@ -141,15 +139,18 @@
 
     {% endblock %}
 
-    <!-- START FOOTER -->
+   <!-- START FOOTER -->
     <footer class="first-footer rec-pro">
+
         <div class="top-footer">
+
             <div class="container-fluid">
-                <div class="row">
+
+                <div class="row" style="margin-left:500px">
                     <div class="col-lg-3 col-md-6">
                         <div class="netabout">
                             <a href="index.html" class="logo">
-                                <img src="{% static 'images/logo-footer.svg' %}" alt="netcom">
+                                <img src="{% static 'images/L_logo.png' %}" alt="netcom">
                             </a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto soluta
                                 laboriosam, perspiciatis, aspernatur officiis esse.</p>
@@ -177,7 +178,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6" >
                         <div class="navigation">
                             <h3>Navigation</h3>
                             <div class="nav-footer">
@@ -198,65 +199,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="widget">
-                            <h3>Twitter Feeds</h3>
-                            <div class="twitter-widget contuct">
-                                <div class="twitter-area">
-                                    <div class="single-item">
-                                        <div class="icon-holder">
-                                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="text">
-                                            <h5><a href="#">@findhouses</a> all share them with me baby said inspet.
-                                            </h5>
-                                            <h4>about 5 days ago</h4>
-                                        </div>
-                                    </div>
-                                    <div class="single-item">
-                                        <div class="icon-holder">
-                                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="text">
-                                            <h5><a href="#">@findhouses</a> all share them with me baby said inspet.
-                                            </h5>
-                                            <h4>about 5 days ago</h4>
-                                        </div>
-                                    </div>
-                                    <div class="single-item">
-                                        <div class="icon-holder">
-                                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="text">
-                                            <h5><a href="#">@findhouses</a> all share them with me baby said inspet.
-                                            </h5>
-                                            <h4>about 5 days ago</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="newsletters">
-                            <h3>Newsletters</h3>
-                            <p>Sign Up for Our Newsletter to get Latest Updates and Offers. Subscribe to receive news in
-                                your inbox.</p>
-                        </div>
-                        <form class="bloq-email mailchimp form-inline" method="post">
-                            <label for="subscribeEmail" class="error"></label>
-                            <div class="email">
-                                <input type="email" id="subscribeEmail" name="EMAIL" placeholder="Enter Your Email">
-                                <input type="submit" value="Subscribe">
-                                <p class="subscription-success"></p>
-                            </div>
-                        </form>
-                    </div>
+
+
                 </div>
+
             </div>
         </div>
-        <div class="second-footer rec-pro">
-            <div class="container-fluid sd-f">
+        <div class="second-footer rec-pro"  >
+            <div class="container-fluid sd-f" style="margin-left:60px">
                 <p>2022 © Copyright - All Rights Reserved.</p>
                 <ul class="netsocials">
                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -264,9 +214,14 @@
                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                 </ul>
+
+
             </div>
         </div>
+
+
     </footer>
+
 
     <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
     <!-- END FOOTER -->
@@ -519,6 +474,8 @@
 <!-- Wrapper / End -->
 </body>
 
+
+<!-- Mirrored from code-theme.com/html/findhouses/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Dec 2021 08:59:05 GMT -->
 </html>
 
 

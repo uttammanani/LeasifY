@@ -9,8 +9,8 @@
         <section class="headings">
             <div class="text-heading text-center">
                 <div class="container">
-                    <h1>Customer Registration</h1>
-                    <h2><a href="index.html">Home </a> &nbsp;/&nbsp; Customer Registration</h2>
+                    <h1>House/PG Owner Registration</h1>
+                    <h2><a href="index.html">Home </a> &nbsp;/&nbsp; House/PG Owner Registration</h2>
                 </div>
             </div>
         </section>
@@ -19,11 +19,11 @@
         <!-- START SECTION 404 -->
         <div id="login">
             <div class="login">
-                <form autocomplete="off"  action="/Client/register/" method="post">
+                <form autocomplete="off"  action="/Client/o_register/" method="post">
                     {% csrf_token %}
                     <div class="form-group">
                         <label>Your Name</label>
-                        <input class="form-control" type="text" name="c_name" minlength="3">
+                        <input class="form-control" type="text" name="o_name" minlength="3">
 
 
                         <i class="ti-user"></i>
@@ -32,24 +32,24 @@
 
                     <div class="form-group">
                         <label>Your Email</label>
-                        <input class="form-control" type="email" name="c_email">
+                        <input class="form-control" type="email" name="o_email">
                         <i class="icon_mail_alt"></i>
                     </div>
                     <div class="form-group">
                         <label>Your Contact No </label>
-                        <input class="form-control" type="number" name="c_phno"  pattern="[0-9]{10}">
+                        <input class="form-control" type="number" name="o_phno"  pattern="[0-9]{10}">
                         <i class="icon_mail_alt"></i>
                     </div>
 
                     <div class="form-group">
                         <label>Your Address </label>
-                        <input class="form-control" type="text" name="c_add">
+                        <input class="form-control" type="text" name="o_add">
                         <i class="icon_mail_alt"></i>
                     </div>
 
                     <div class="form-group">
                         <label>Your password</label>
-                        <input class="form-control" type="password" id="password1" name="c_pass" >
+                        <input class="form-control" type="password" id="password1" name="o_pass" >
                         <i class="icon_lock_alt"></i>
                     </div>
 
@@ -57,21 +57,23 @@
                         <label>Gender</label>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="c_gender" value="Male">
+                                    <input type="radio" name="o_gender" value="Male">
                                     Male </label>
                                 &nbsp;
                                 &nbsp;
                                  <label>
-                                    <input type="radio" name="c_gender" value="Female">
+                                    <input type="radio" name="o_gender" value="Female">
                                     Female </label>
                             </div>
                         <i class="icon_lock_alt"></i>
                     </div>
-
+                    <div class="form-group">
+                     <b><label>You are:</label><br> <input type="radio" name="o_type" value="House Owner">House Owner <br><input type="radio" name="o_type" value="PG Owner">PG Owner <br>
+                       </b>
+                        </div>
 
                     <div id="pass-info" class="clearfix"></div>
                     <button href="#" class="btn_1 rounded full-width add_top_30" type="submit">Register Now!</button>
-                    <div class="text-center add_top_10">Sign Up As: <strong><a href="/Client/o_register/">House/PG Owner</a></strong><br> <strong><a href="/Client/t_register/" style="margin-left:40px;">Tiffin Owner</a></strong></div>
                     <div class="text-center add_top_10">Already have an acccount? <strong><a href="login.html">Sign In</a></strong></div>
                 </form>
             </div>
