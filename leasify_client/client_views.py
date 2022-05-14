@@ -5,11 +5,14 @@ from datetime import date
 from django.contrib import messages
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from leasify_admin.models import customer, tiffin_details, owner, tiffin_owner
+
+from leasify_admin.function import handle_uploaded_file
+from leasify_admin.models import customer, tiffin_details, owner, tiffin_owner, area
 from django.core.mail import send_mail
 from leasify import settings
 # from leasify_admin.models import Booking
-from leasify_admin.forms import customer_form, house_details, pg_details, owner_form, tiffin_owner_form
+from leasify_admin.forms import customer_form, house_details, pg_details, owner_form, tiffin_owner_form, \
+    house_details_form, pg_details_form, tiffin_details_form
 
 
 # from leasify_admin.forms import Userform
@@ -82,7 +85,12 @@ def login(request):
         elif radd=='h':
             val = owner.objects.filter(o_email=email, o_pass=password).count()
             if val ==1:
+                obj = owner.objects.get(o_email=email)
                 request.session['owner_id']=email
+                request.session['type'] = obj.o_type
+                request.session['name'] = obj.o_name
+
+
                 print("_____________________________", request.session['owner_id'])
                 return redirect('/Client/home')
             else:
@@ -91,7 +99,10 @@ def login(request):
         elif radd=='t':
             val = tiffin_owner.objects.filter(to_email=email, to_pass=password).count()
             if val ==1:
+                obj = tiffin_owner.objects.get(to_email=email)
                 request.session['tiffin_owner_id']=email
+                request.session['name'] = obj.to_name
+                request.session['random']="tiffin"
                 print("_____________________________", request.session['tiffin_owner_id'])
                 return redirect('/Client/home')
             else:
@@ -99,6 +110,65 @@ def login(request):
 
     else:
         return render(request, 'client_login.html')
+
+
+def insertt_house_details(request):
+    own = owner.objects.all()
+    are = area.objects.all()
+    if request.method == "POST":
+        form = house_details_form(request.POST, request.FILES)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                handle_uploaded_file(request.FILES['h_imgpath'])
+                form.save()
+                return redirect('/Client/home/')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = house_details_form()
+    return render(request, "add_house.html", {'form': form, 'own': own, 'are': are})
+
+
+
+def insert_pg_details(request):
+    own = owner.objects.all()
+    are = area.objects.all()
+    if request.method == "POST":
+        form = pg_details_form(request.POST, request.FILES)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                handle_uploaded_file(request.FILES['pg_imgpath'])
+                form.save()
+                return redirect('/Client/home/')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = house_details_form()
+    return render(request, "add_pg.html", {'form': form, 'own': own, 'are': are})
+
+
+
+def insertt_tiffin_details(request):
+    own = tiffin_owner.objects.all()
+
+    if request.method == "POST":
+        form = tiffin_details_form(request.POST, request.FILES)
+        print("__________________", form.errors)
+        if form.is_valid():
+            try:
+                handle_uploaded_file(request.FILES['tiff_imgpath'])
+                form.save()
+                return redirect('/Client/home/')
+            except:
+                print("________________", sys.exc_info())
+    else:
+        form = tiffin_details_form()
+    return render(request, "add_tiffin.html", {'form': form, 'own': own})
+
+
+
 
 # def login(request):
 #     if request.method == 'POST':
@@ -158,9 +228,9 @@ def about_us(request):
 
 
 def blog(request):
-    book = Booking.objects.all()
+    book = customer.objects.all()
     # print("-----------",booking.bk_date)
-    return render(request, 'client_blog.html', {'booking': book})
+    return render(request, 'client_blog.html', {'book': book})
 
 
 def contact_us(request):

@@ -2,15 +2,13 @@
 
 <html lang="zxx">
 
-
-<!-- Mirrored from code-theme.com/html/findhouses/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Dec 2021 09:05:43 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="html 5 template">
     <meta name="author" content="">
-    <title>Register</title>
+    <title>Leasify |Find Your Living</title>
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
@@ -67,19 +65,28 @@
                             <li><a href="/Client/home/">Home</a>
 
                             </li>
-                            <li><a href="#">Listing</a>
+                            <li><a href="/Client/about/">About</a>
 
                             </li>
-                            <li><a href="#">Property</a>
+
+                            <li><a href="/Client/contact_us/">Contact</a></li>
+                            {% if 'House Owner' in request.session.type %}
+                            <li><a href="/Client/add_house/">Add Your House</a>
+                                {% endif %}
 
                             </li>
-                            <li><a href="#">Category</a>
+                            {% if 'PG Owner' in request.session.type %}
+                            <li><a href="/Client/add_pg/">Add Your PG</a>
+                                {% endif %}
 
                             </li>
-                            <li><a href="#">Blog</a>
+                             {% if 'tiffin' in request.session.random %}
+                            <li><a href="/Client/add_tiff/">Add Your Tiffin</a>
+                                {% endif %}
 
                             </li>
-                            <li><a href="contact-us.html">Contact</a></li>
+
+
 
 
 
@@ -146,59 +153,38 @@
 
             <div class="container-fluid">
 
-                <div class="row" style="margin-left:500px">
+                <div class="row" style="margin-left:650px">
                     <div class="col-lg-3 col-md-6">
                         <div class="netabout">
                             <a href="index.html" class="logo">
                                 <img src="{% static 'images/L_logo.png' %}" alt="netcom">
                             </a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto soluta
-                                laboriosam, perspiciatis, aspernatur officiis esse.</p>
+                            <p>Looking at a property listing website that will effectively help you to put a house/PG on a rent only in Ahmedabad?Join Leasify, a free property listing site with additional feature Tiffin-Service.</p>
                         </div>
                         <div class="contactus">
                             <ul>
                                 <li>
                                     <div class="info">
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                        <p class="in-p">95 South Park Avenue, USA</p>
+                                        <p class="in-p">Ghatlodia, Ahmedabad</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="info">
                                         <i class="fa fa-phone" aria-hidden="true"></i>
-                                        <p class="in-p">+456 875 369 208</p>
+                                        <p class="in-p">+919876543210</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="info">
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
-                                        <p class="in-p ti">support@findhouses.com</p>
+                                        <p class="in-p ti">leasify0101@gmail.com</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6" >
-                        <div class="navigation">
-                            <h3>Navigation</h3>
-                            <div class="nav-footer">
-                                <ul>
-                                    <li><a href="index.html">Home One</a></li>
-                                    <li><a href="properties-right-sidebar.html">Properties Right</a></li>
-                                    <li><a href="properties-full-list.html">Properties List</a></li>
-                                    <li><a href="properties-details.html">Property Details</a></li>
-                                    <li class="no-mgb"><a href="agents-listing-grid.html">Agents Listing</a></li>
-                                </ul>
-                                <ul class="nav-right">
-                                    <li><a href="agent-details.html">Agents Details</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="blog.html">Blog Default</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                    <li class="no-mgb"><a href="contact-us.html">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+
 
 
                 </div>
@@ -206,7 +192,7 @@
             </div>
         </div>
         <div class="second-footer rec-pro"  >
-            <div class="container-fluid sd-f" style="margin-left:60px">
+            <div class="container-fluid sd-f" style="margin-left:100px">
                 <p>2022 © Copyright - All Rights Reserved.</p>
                 <ul class="netsocials">
                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -474,8 +460,4 @@
 <!-- Wrapper / End -->
 </body>
 
-
-<!-- Mirrored from code-theme.com/html/findhouses/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Dec 2021 08:59:05 GMT -->
 </html>
-
-

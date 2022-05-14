@@ -4,6 +4,7 @@
 
         <div class="clearfix"></div>
         <!-- START SECTION SHOP -->
+{% for data in home1%}
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 col-md-12 blog-pots">
@@ -14,12 +15,12 @@
                                         <div class="single-portfolio">
                                             <div class="portfolio-img">
                                                 <div class="popup-images">
-                                                    <a class="popup-img" href="{% static 'images/shop/shop-1.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-1.jpg' %}" alt=""></a>
+                                                    <a class="popup-img" href="{% static 'images/shop/shop-1.jpg' %}"><img class="img-fluid w100" src="{% static 'im/' %}{{data.h_imgpath}}" alt=""></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {% for data in home1%}
+
                                       <div class="col-md-6 single-p-info shop">
                                         <h2 class="mb-3">{{data.h_name}}</h2>
                                         <ul class="starts text-left">
@@ -36,42 +37,16 @@
                                         </ul>
                                         <p>Address :- {{data.h_add}}</p>
                                         <p>Rent :- {{data.h_rent}} <br>Parking :- {{data.h_parking}}<br>Lift available :- {{data.h_lift }}<br>House Type :- {{data.h_type}}</p><br>
-                                        <a class="btn1 btn-sm" href="#"><i class="fa fa-shopping-cart mr-2"></i>Book Now</a>
+                                           {% if request.session.name %}
+                                        <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_JSptU6dyFrnr6y" async> </script> </form>
+                                          {% endif %}
                                         <div class="text-left">
                                         </div>
                                     </div>
                                     </div>
 
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-2 thumax-2">
-                                        <div class="single-portfolio thumax">
-                                            <div class="portfolio-img">
-                                                <div class="popup-images">
-                                                    <a class="popup-img" href="{% static 'images/shop/shop-2.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-2.jpg' %}" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 thumax-2">
-                                        <div class="single-portfolio thumax">
-                                            <div class="portfolio-img">
-                                                <div class="popup-images">
-                                                    <a class="popup-img" href="{% static 'images/shop/shop-3.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-3.jpg' %}" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="single-portfolio thumax">
-                                            <div class="portfolio-img">
-                                                <div class="popup-images">
-                                                    <a class="popup-img" href="{% static 'images/shop/shop-4.jpg' %}"><img class="img-fluid w100" src="{% static 'images/shop/shop-4.jpg' %}" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="blog-info details mb-30 mt-5">
                                     <h5 class="mb-4">Description</h5>
                                     <p class="mb-3">{{data.h_desc}}</p>

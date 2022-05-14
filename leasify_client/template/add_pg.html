@@ -1,0 +1,148 @@
+{% extends "client_header.html" %}
+{% load static %}
+{% block content %}
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">INSERT PG DETAILS</h4>
+                            <br>
+                            <form method="post" action="/Client/add_pg/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="mb-3 row">
+                                    <label for="example-text-input" class="col-md-2 col-form-label">PG
+                                        Address</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="pg_add" id="example-text-input">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="example-search-input" class="col-md-2 col-form-label">PG Name</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="pg_name" id="example-search-input">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">PG Owner Name</label>
+                                    <div class="col-md-10">
+                                        <select name="o_id" class="form-select">
+                                            {% for data in own %}
+                                            <option value="{{data.o_id}}">{{data.o_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">PG Area</label>
+                                    <div class="col-md-10">
+                                        <select name="a_id" class="form-select">
+                                            {% for data in are %}
+                                            <option value="{{data.a_id}}">{{data.a_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">Number of Beds</label>
+                                    <div class="col-md-10">
+                                        <select name="pg_beds" class="form-select">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                             <option value="4">4</option>
+                                             <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                 <div class="mb-3 row">
+                                    <label for="example-time-input" class="col-md-2 col-form-label">PG Description</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="pg_desc"
+                                               id="example-time-input">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label for="example-datetime-local-input" class="col-md-2 col-form-label">PG Rent
+                                        </label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" name="pg_rent"
+                                               id="example-datetime-local-input">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">PG For</label>
+                                    <div class="col-md-10">
+                                        <select name="pg_for" class="form-select">
+                                            <option value="Boys">Boys</option>
+                                            <option value="Girls">Girls</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">Food Available</label>
+                                    <div class="col-md-10">
+                                        <select name="pg_food" class="form-select">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">Wifi Available</label>
+                                    <div class="col-md-10">
+                                        <select name="pg_wifi" class="form-select">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label">TV Available</label>
+                                    <div class="col-md-10">
+                                        <select name="pg_tv" class="form-select">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="example-number-input" class="col-md-2 col-form-label">PG Image</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="file" name="pg_imgpath" id="example-number-input">
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="submit" value="Submit" style="color:red">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div>
+
+            <!-- end row -->
+
+
+            {% endblock %}

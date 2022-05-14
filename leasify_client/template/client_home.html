@@ -44,7 +44,7 @@
 
                         <div class="people listing-item compact thehp-2">
                             <a href="/Client/home_desc/{{value.h_id}}" class="recent-16 hmp" data-aos="fade-up" >
-                                <div class="recent-img16 img-center" ><img src="{% static 'im/house1.jpeg' %}"/></div>
+                                <div class="recent-img16 img-center" ><img src="{% static 'im/' %}{{value.h_imgpath}}" alt=""></div>
                                 <div class="recent-content"></div>
 
                                 <div class="recent-details">
@@ -133,7 +133,7 @@
 
                         <div class="people listing-item compact thehp-2">
                             <a href="/Client/pg_desc/{{value.pg_id}}" class="recent-16 hmp" data-aos="fade-up" >
-                                <div class="recent-img16 img-center" ><img src="{% static 'im/pg1.jpg' %} " width="300px"/></div>
+                                <div class="recent-img16 img-center" > <img src="{% static 'im/' %}{{value.pg_imgpath}}" alt=""></div>
                                 <div class="recent-content"></div>
 
                                 <div class="recent-details">
@@ -175,7 +175,7 @@
 
                         <div class="people listing-item compact thehp-2">
                             <a href="/Client/tiff_desc/{{value.tiff_id}}" class="recent-16 hmp" data-aos="fade-up" >
-                                <div class="recent-img16 img-center" ><img src="{% static 'im/tiff1.jpg' %} " width="300px"/></div>
+                                <div class="recent-img16 img-center" ><img src="{% static 'im/' %}{{value.tiff_imgpath}}" alt=""></div>
                                 <div class="recent-content"></div>
 
                                 <div class="recent-details">

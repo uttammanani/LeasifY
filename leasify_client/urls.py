@@ -8,7 +8,7 @@ urlpatterns = [
     path('home/', client_views.home),
     path('checkout/', client_views.checkout),
     path('user_profile/', client_views.user_profile),
-    path('about_us/', client_views.about_us),
+    path('about/', client_views.about_us),
     path('blog/', client_views.blog),
     path('contact_us/', client_views.contact_us),
     path('setpass/', client_views.setpassword),
@@ -24,6 +24,9 @@ urlpatterns = [
     path('mybookings/',client_views.mybookings),
     path('t_register/',client_views.t_register),
     path('o_register/',client_views.o_register),
-    path('logout/',client_views.logout)
+    path('logout/',client_views.logout),
+    path('add_house/',client_views.insertt_house_details),
+path('add_pg/',client_views.insert_pg_details),
+path('add_tiff/',client_views.insertt_tiffin_details)
 
 ]

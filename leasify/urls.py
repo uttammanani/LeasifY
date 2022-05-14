@@ -45,6 +45,7 @@ urlpatterns = [
     path('insert_pg_gallery/', views.insert_pg_gallery),
     path('del_area/<int:id>', views.del_area),
     path('del_house_details/<int:id>', views.del_house_details),
+    path('del_tiffin_details/<int:id>', views.del_tiffin_details),
     path('del_house_gallery/<int:id>', views.del_house_gallery),
     path('del_owner/<int:id>', views.del_owner),
     path('del_pg_details/<int:id>', views.del_pg_details),

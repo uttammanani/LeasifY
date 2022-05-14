@@ -45,7 +45,7 @@ def admin_login(request):
                     return response
             return redirect('/index/')
         else:
-            messages.error("invalid password")
+            #messages.error("invalid password")
             return redirect('/admin_login/')
     else:
         if request.COOKIES.get("cookie_a_email"):
@@ -55,6 +55,9 @@ def admin_login(request):
                                'cookie_a_password']})
         else:
             return render(request, 'admin_login.html')
+
+
+
 
 
     # if request.method == 'POST':
